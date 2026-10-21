@@ -1,0 +1,14 @@
+Source audio for the Kenneth Lamor site intro
+=============================================
+
+File:      freesound_community-fxsasc-wind-chimes-far-27550.mp3  (original, untouched)
+Title:     FXSaSc Wind Chimes far
+Author:    Profispiesser (originally published on Freesound, mirrored on Pixabay by "freesound_community")
+Source:    https://pixabay.com/sound-effects/film-special-effects-fxsasc-wind-chimes-far-27550/
+Direct:    https://cdn.pixabay.com/download/audio/2022/03/09/audio_82505b80de.mp3?filename=freesound_community-fxsasc-wind-chimes-far-27550.mp3
+Original:  https://freesound.org/people/Profispiesser/sounds/521026/  (Creative Commons 0 / public domain on Freesound)
+License:   Pixabay Content License (https://pixabay.com/service/license-summary/)
+           Free to use, including commercially; no attribution required; may be modified.
+           Not allowed: selling or distributing the content unaltered on a standalone basis.
+Format:    MP3, 256 kbps, 48 kHz, mono, 51.53 s, 1,648,896 bytes
+Retrieved: 2026-10-20, downloaded without an account (approved by Ken Bridgett for this single file).

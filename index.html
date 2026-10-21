@@ -1,0 +1,1431 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kenneth Lamor | Brand Strategist &amp; Consultant</title>
+<meta name="description" content="Kenneth Lamor Bridgett is a brand strategist and consultant. Twenty years behind the camera, 7,000+ sessions, and the last decade decoding what brands actually need.">
+<meta name="theme-color" content="#F7F2EC">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 fill=%27%23FBFAF7%27/%3E%3Ctext x=%2732%27 y=%2746%27 font-family=%27Georgia,serif%27 font-size=%2738%27 text-anchor=%27middle%27 fill=%27%2317171B%27%3EKL%3C/text%3E%3Crect x=%2716%27 y=%2753%27 width=%2732%27 height=%271.5%27 fill=%27%23C9A86A%27/%3E%3C/svg%3E">
+<link rel="canonical" href="https://kennethlamor.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kenneth Lamor | Brand Strategist & Consultant">
+<meta property="og:description" content="Your vision, your brand, your purpose&hellip; EXECUTED.">
+<meta property="og:url" content="https://kennethlamor.com/">
+<meta property="og:image" content="https://kennethlamor.com/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<script>
+/* Intro gate, decided before first paint so the page never flashes underneath.
+   #/intro replays; ?present=1 always plays it (presentation mode, with a one-click "Play with sound" card);
+   ?capture=1 is the frame-capture mode for the teaser video. Reduced motion gets a still frame (only when asked for).
+   Fails open if scripts never start it. */
+(function(){
+ /* PRODUCTION CHECKLIST (Ken's decision):
+      1. INTRO_START_CARD = true        keep: the live site also opens on the "Play with sound" card
+      2. INTRO_ONCE_PER_SESSION = true  set for launch, so a returning visitor in the same session isn't gated twice
+      3. remove the debug hooks window.__klTime / window.__klSnd (marked "DEBUG" further down)
+      4. don't publish ../PRESENT-Kenneth-Lamor.html (presenting only) or audio/source/ (license record only) */
+ const INTRO_ONCE_PER_SESSION = false; // MOCKUP: every load plays the intro (for presenting). PRODUCTION: true.
+ const INTRO_START_CARD = true;        // PRODUCTION: true (Ken's decision). The intro waits on the "Play with sound" card, the click
+                                       // browsers need for sound. false would start it by itself, silent unless sound was already
+                                       // allowed. ?present=1 always shows the card.
+ var d=document.documentElement,q=location.search,force=location.hash==='#/intro',seen=false,
+ present=/[?&]present=1\b/.test(q),
+ rm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+ d.setAttribute('data-intro-once', INTRO_ONCE_PER_SESSION ? '1' : '0');
+ d.setAttribute('data-start-card', INTRO_START_CARD ? '1' : '0');
+ try{seen=INTRO_ONCE_PER_SESSION&&sessionStorage.getItem('kl-intro-seen')==='1'}catch(e){}
+ if(/[?&]capture=1\b/.test(q)){d.classList.add('kl-intro-on','kl-capture');return}
+ if(present)d.classList.add('kl-present');
+ if(rm){if(force||present)d.classList.add('kl-intro-on','kl-intro-still');}
+ else if(force||present||!seen){d.classList.add('kl-intro-on')}
+ setTimeout(function(){if(!d.classList.contains('kl-intro-live'))d.classList.remove('kl-intro-on','kl-intro-still')},6000);
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/hero-ivory-768.webp" imagesrcset="assets/hero-ivory-480.webp 480w, assets/hero-ivory-768.webp 768w" imagesizes="(min-width: 900px) 620px, 100vw">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Kenneth Lamor Bridgett",
+  "alternateName": "Kenneth Lamor",
+  "jobTitle": "Brand Strategist",
+  "worksFor": { "@type": "Organization", "name": "Signature Branding & Marketing", "url": "https://signaturebrandmarketing.com" },
+  "url": "https://kennethlamor.com/",
+  "sameAs": [
+    "https://www.linkedin.com/in/kenneth-bridgett-6549052a/",
+    "https://www.facebook.com/kenneth.bridgett.2025/"
+  ]
+}
+</script>
+
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --paper:#F7F2EC;      /* sampled from the graded hero backdrop */
+  --stone:#EEE7DD;
+  --ink:#17171B;
+  --graphite:#4D4C52;
+  --muted:#65635F;
+  --line:#DDD5C9;
+  --gold:#C9A86A;        /* hairlines, marks, underlines only. Never text. */
+  --gold-deep:#76592A;   /* gold text, AA on paper and stone */
+
+  --serif:"Newsreader", Georgia, "Times New Roman", serif;
+  --sans:"Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --gutter:clamp(16px, 4.2vw, 64px);
+  --max:1320px;
+  --section:clamp(88px, 12vw, 176px);
+  --measure:62ch;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+
+/* ============ BASE ============ */
+*,*::before,*::after{box-sizing:border-box}
+html{color-scheme:light;-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:84px}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--sans);font-size:1.0625rem;line-height:1.65;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;-webkit-tap-highlight-color:transparent}
+a,button,input,select,textarea,label{touch-action:manipulation}
+h1,h2,h3{font-family:var(--serif);font-weight:300;margin:0;letter-spacing:-.015em;font-optical-sizing:auto;text-wrap:balance}
+p{margin:0;text-wrap:pretty}
+.tm{font-size:.32em;vertical-align:.95em;letter-spacing:0;margin-left:.06em;font-weight:400}
+.wrap{max-width:var(--max);margin-inline:auto;padding-inline:var(--gutter)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+::selection{background:#EADFC6;color:var(--ink)}
+
+.skip{position:absolute;left:var(--gutter);top:-60px;z-index:100;background:var(--ink);color:var(--paper);padding:12px 18px;text-decoration:none;font-size:.9375rem}
+.skip:focus{top:12px}
+
+/* Text link with champagne underline */
+.tlink{
+  text-decoration:none;color:var(--ink);font-weight:500;
+  background:linear-gradient(var(--gold),var(--gold)) 0 100%/100% 1px no-repeat;
+  padding-bottom:3px;transition:background-size .5s var(--ease), color .3s;
+}
+.tlink:hover{background-size:0 1px;background-position:100% 100%}
+/* Standalone links: invisible 44px hit area, visuals unchanged */
+.tlink--solo{position:relative}
+.tlink--solo::after{content:"";position:absolute;inset:-10px -8px}
+
+/* Buttons: square corners, one radius system (0) */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.6em;
+  min-height:52px;padding:0 28px;border:1px solid var(--ink);
+  background:var(--ink);color:var(--paper);
+  font:500 .9375rem/1 var(--sans);letter-spacing:.01em;text-decoration:none;white-space:nowrap;
+  cursor:pointer;transition:background .35s var(--ease),color .35s var(--ease),transform .15s;
+}
+.btn:hover{background:#2B2B31}
+.btn:active{transform:translateY(1px)}
+.btn--ghost{background:transparent;color:var(--ink)}
+.btn--ghost:hover{background:var(--ink);color:var(--paper)}
+
+/* Small label: sentence case italic, deep gold. Used in max 3 places. */
+.label{
+  display:flex;align-items:center;gap:14px;
+  font-family:var(--serif);font-style:italic;font-size:1.125rem;color:var(--gold-deep);
+}
+.label::before{content:"";width:40px;height:1px;background:linear-gradient(90deg,var(--gold),rgba(201,168,106,.25))}
+
+.diamond{display:inline-block;width:7px;height:7px;background:var(--gold);transform:rotate(45deg);flex:none}
+
+/* ============ NAV ============ */
+.nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(247,242,236,.88);
+  -webkit-backdrop-filter:saturate(140%) blur(14px);backdrop-filter:saturate(140%) blur(14px);
+  border-bottom:1px solid transparent;transition:border-color .4s;
+}
+.nav.is-scrolled{border-bottom-color:var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:24px}
+.wordmark{display:inline-block;padding-block:6px;font-family:var(--serif);font-size:1.375rem;font-weight:400;letter-spacing:.01em;text-decoration:none;color:var(--ink);white-space:nowrap}
+.nav-links{display:flex;align-items:center;gap:clamp(18px,2.4vw,36px);list-style:none;margin:0;padding:0}
+.nav-links a:not(.btn){font-size:.9375rem;color:var(--graphite);text-decoration:none;padding:12px 0;transition:color .25s}
+.nav-links a:not(.btn):hover{color:var(--ink)}
+.nav .btn{min-height:44px;padding:0 20px;font-size:.875rem}
+.menu-btn{display:none;min-height:44px;min-width:44px;padding:0 4px;background:none;border:0;font:500 .9375rem var(--sans);color:var(--ink);cursor:pointer}
+
+.drawer{
+  position:fixed;inset:0;z-index:60;background:var(--paper);
+  display:flex;flex-direction:column;padding:0 var(--gutter) max(32px, env(safe-area-inset-bottom));overscroll-behavior:contain;overflow-y:auto;
+  visibility:hidden;opacity:0;transition:opacity .35s var(--ease),visibility 0s linear .35s;
+}
+.drawer.is-open{visibility:visible;opacity:1;transition:opacity .35s var(--ease)}
+.drawer-top{display:flex;align-items:center;justify-content:space-between;height:68px}
+.drawer ul{list-style:none;margin:28px 0 0;padding:0}
+.drawer li a{display:block;font-family:var(--serif);font-size:2.25rem;font-weight:300;padding:10px 0;text-decoration:none;border-bottom:1px solid var(--line)}
+.drawer .btn{margin-top:auto;width:100%}
+
+@media (max-width:959px){
+  .nav-links{display:none}
+  .menu-btn{display:inline-flex;align-items:center}
+}
+
+/* ============ FEATHERED PORTRAITS ============
+   Every portrait dissolves into the paper: no frames, no hard crop edges.
+   Each figure sets its own fade via --mx (horizontal) and --my (vertical). */
+.feather{
+  --mx:linear-gradient(to right, transparent 0, #000 16%, #000 84%, transparent 100%);
+  --my:linear-gradient(to bottom, transparent 0, #000 10%, #000 78%, transparent 100%);
+  -webkit-mask-image:var(--mx),var(--my);mask-image:var(--mx),var(--my);
+  -webkit-mask-composite:source-in;mask-composite:intersect;
+  -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
+  background:transparent;
+}
+
+/* ============ HERO ============ */
+.hero{position:relative;overflow:hidden;padding-bottom:clamp(56px,7vw,96px)}
+.hero-grid{display:flex;flex-direction:column}
+.hero-name{
+  font-size:clamp(4.25rem, 10.4vw, 9.25rem);line-height:.94;font-weight:300;letter-spacing:-.03em;
+  margin-left:-.05em;
+}
+.hero-name .line{display:block;overflow:hidden;padding-bottom:.06em}
+.hero-name .line > span{display:inline-block}
+.hero-name .line--indent{padding-left:1.05em}
+.hero-meta{margin-top:clamp(28px,3.2vw,44px);max-width:40rem}
+.hero-role{display:flex;align-items:center;gap:14px;font-size:.9375rem;font-weight:500;letter-spacing:.02em;color:var(--ink)}
+.hero-role::before{content:"";width:40px;height:1px;background:linear-gradient(90deg,var(--gold),rgba(201,168,106,.25))}
+/* Ken's signature line: the ellipsis is his pause; the capitals carry the emphasis (same face, no bold, no colour) */
+.hero-hold{white-space:nowrap}
+.hero-caps{letter-spacing:.05em}
+.hero-statement{margin-top:18px;font-family:var(--serif);font-size:clamp(1.3rem,1.9vw,1.7rem);line-height:1.38;font-weight:300;color:var(--graphite)}
+.hero-ctas{margin-top:32px;display:flex;flex-wrap:wrap;align-items:center;gap:20px 30px}
+.hero-text{position:relative;z-index:1}
+
+/* Mobile: portrait sits above the name, full bleed, fading down into the page */
+.hero-figure{
+  order:-1;margin:0 calc(-1 * var(--gutter));height:min(50vh, 420px);overflow:hidden;
+  --mx:linear-gradient(to right, transparent 0, #000 8%, #000 92%, transparent 100%);
+  --my:linear-gradient(to bottom, transparent 0, #000 12%, #000 52%, transparent 96%);
+}
+.hero-figure img{width:100%;height:100%;object-fit:cover;object-position:50% 9%}
+@media (max-width:899px){ .hero-text{margin-top:-104px} }
+
+/* Desktop: portrait bleeds off the right edge and top, fading left toward the name */
+@media (min-width:900px){
+  .hero{min-height:min(calc(100dvh - 68px), 900px);display:flex}
+  .hero-grid{flex:1;justify-content:flex-end;padding-top:clamp(40px,6vw,96px);width:100%}
+  .hero-figure{
+    position:absolute;top:0;right:0;bottom:0;width:min(46vw, 620px);height:auto;margin:0;
+    --mx:linear-gradient(to right, transparent 0, #000 40%);
+    --my:linear-gradient(to bottom, transparent 0, #000 5%, #000 70%, transparent 100%);
+  }
+  .hero-figure img{object-position:50% 6%}
+  .hero-text{max-width:min(58%, 760px)}
+}
+
+/* ============ PROOF ============ */
+.proof{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.proof-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr}
+.proof-list li{padding:28px 0 26px;border-bottom:1px solid var(--line)}
+.proof-list li:nth-child(odd){padding-right:16px}
+.proof-list li:nth-child(even){padding-left:16px;border-left:1px solid var(--line)}
+.proof-list li:last-child{grid-column:1 / -1;border-bottom:0;padding-left:0;border-left:0}
+.proof-fig{display:block;font-variant-numeric:lining-nums;font-family:var(--serif);font-weight:300;font-size:clamp(2.1rem,3.4vw,3rem);line-height:1;letter-spacing:-.02em}
+.proof-fig em{font-style:italic}
+.proof-cap{display:block;margin-top:10px;font-size:.875rem;line-height:1.45;color:var(--graphite)}
+@media (min-width:900px){
+  .proof-list{grid-template-columns:repeat(5,1fr)}
+  .proof-list li,.proof-list li:nth-child(odd),.proof-list li:nth-child(even),.proof-list li:last-child{
+    grid-column:auto;padding:40px 24px 36px;border-bottom:0;border-left:1px solid var(--line)
+  }
+  .proof-list li:first-child{border-left:0;padding-left:0}
+}
+
+/* ============ PROBLEM ============ */
+.problem{padding-block:var(--section)}
+.problem-grid{display:grid;gap:48px}
+.problem-fig{margin:0;overflow:hidden;aspect-ratio:4/5;
+  --mx:linear-gradient(to right, transparent 0, #000 12%, #000 72%, transparent 100%);
+  --my:linear-gradient(to bottom, transparent 0, #000 9%, #000 74%, transparent 100%)}
+.problem-fig img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.problem h2{font-size:clamp(2.2rem,4.6vw,4rem);line-height:1.04;max-width:14ch}
+.lede{margin-top:32px;font-family:var(--serif);font-size:clamp(1.25rem,1.8vw,1.55rem);line-height:1.5;font-weight:300;color:var(--graphite);max-width:36rem}
+.lede p + p{margin-top:.8em}
+.notes{margin-top:56px;display:grid;gap:40px 48px}
+.note{border-top:1px solid var(--line);padding-top:22px}
+.note h3{font-size:1.5rem;line-height:1.2;font-weight:400}
+.note p{margin-top:10px;color:var(--graphite);max-width:var(--measure)}
+.closing{margin-top:56px;font-family:var(--serif);font-style:italic;font-size:clamp(1.35rem,2vw,1.75rem);line-height:1.4;max-width:30rem}
+@media (min-width:900px){
+  .problem-grid{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(48px,6vw,112px);align-items:start}
+  .problem-fig{position:sticky;top:108px}
+  .notes{grid-template-columns:1fr 1fr}
+}
+
+/* ============ ENGAGEMENTS ============ */
+.work{padding-bottom:var(--section)}
+.work-head{max-width:46rem}
+.work h2{font-size:clamp(2.2rem,4.6vw,4rem);line-height:1.04}
+.work-intro{margin-top:24px;color:var(--graphite);max-width:var(--measure)}
+.offers{list-style:none;margin:64px 0 0;padding:0;border-top:1px solid var(--ink)}
+.offer{display:grid;gap:14px;padding:36px 0 40px;border-bottom:1px solid var(--line)}
+.offer h3{font-size:clamp(1.75rem,2.6vw,2.4rem);line-height:1.1}
+.offer-desc{color:var(--graphite);max-width:var(--measure)}
+.offer-fit{margin-top:14px;font-size:.9375rem;color:var(--muted)}
+.offer-fit strong{font-weight:500;color:var(--ink)}
+.offer .tlink{justify-self:start;font-size:.9375rem;margin-top:6px}
+.work-note{margin-top:40px;display:flex;gap:14px;align-items:baseline;color:var(--graphite)}
+.work-note .diamond{transform:translateY(-2px) rotate(45deg)}
+@media (min-width:900px){
+  .offer{grid-template-columns:minmax(0,4fr) minmax(0,6fr) minmax(0,2fr);gap:48px;align-items:baseline;padding:48px 0 52px}
+  .offer .tlink{justify-self:end;margin-top:0}
+}
+
+/* ============ METHOD ============ */
+.method{background:var(--stone);padding-block:var(--section)}
+.method h2{margin-top:26px;font-size:clamp(2.6rem,6vw,5.5rem);line-height:1;letter-spacing:-.03em}
+.thesis{margin:36px 0 0;max-width:40rem;font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(1.4rem,2.3vw,2rem);line-height:1.38;color:var(--graphite)}
+.steps{list-style:none;margin:80px 0 0;padding:0;display:grid;gap:0;counter-reset:s}
+.step{position:relative;padding:32px 0 36px;border-top:1px solid #D3CABD}
+.step-num{display:block;font-family:var(--serif);font-weight:300;font-size:3.25rem;line-height:1;color:var(--gold-deep)}
+.step h3{margin-top:18px;font-size:1.75rem;font-weight:400}
+.step p{margin-top:10px;color:var(--graphite);font-size:1rem;max-width:34ch}
+.kit{margin-top:56px;color:var(--graphite);max-width:var(--measure)}
+@media (min-width:900px){
+  .steps{grid-template-columns:repeat(4,1fr);gap:40px}
+  .step{padding-right:8px}
+}
+
+/* ============ PLATFORM ============ */
+.platform{padding-block:var(--section)}
+.platform-grid{display:grid;gap:48px}
+.platform h2{font-size:clamp(2.2rem,4.6vw,4rem);line-height:1.04;max-width:13ch}
+.platform-why{margin-top:28px;font-family:var(--serif);font-size:clamp(1.2rem,1.7vw,1.45rem);line-height:1.5;font-weight:300;color:var(--graphite);max-width:34rem}
+.platform-why p + p{margin-top:.8em}
+.platform .btn{margin-top:36px}
+.platform .btn .arrow{transition:transform .35s var(--ease)}
+.platform .btn:hover .arrow{transform:translateX(3px)}
+.caps{list-style:none;margin:0;padding:0;display:grid;gap:0;border-top:1px solid var(--line)}
+.cap{padding:26px 0 28px;border-bottom:1px solid var(--line)}
+.cap h3{font-size:1.5rem;line-height:1.2;font-weight:400}
+.cap p{margin-top:8px;color:var(--graphite);font-size:1rem;max-width:52ch}
+.screen{margin:72px 0 0;background:#E6E2DA;padding:0;box-shadow:0 2px 4px rgba(60,52,38,.10),0 40px 80px -30px rgba(60,52,38,.35)}
+.screen-bar{display:flex;align-items:center;justify-content:center;position:relative;height:34px;border-bottom:1px solid #D6D1C7}
+.screen-bar::before{content:"";position:absolute;left:14px;top:50%;width:8px;height:8px;border-radius:50%;background:#CFC9BD;box-shadow:14px 0 0 #CFC9BD,28px 0 0 #CFC9BD;transform:translateY(-50%)}
+.screen-url{font-size:.875rem;color:var(--graphite);letter-spacing:.01em}
+.screen img{width:100%;height:auto;display:block}
+.screen-cap{margin-top:16px;font-size:.875rem;color:var(--muted)}
+@media (min-width:900px){
+  .platform-grid{grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:clamp(48px,6vw,112px);align-items:start}
+  .caps{margin-top:8px}
+}
+@media (max-width:599px){
+  .screen{margin-top:56px}
+  .screen-bar{height:28px}
+  .screen-bar::before{width:6px;height:6px;left:10px;box-shadow:10px 0 0 #CFC9BD,20px 0 0 #CFC9BD}
+}
+
+/* ============ SPEAKING ============ */
+.speaking{padding-block:var(--section)}
+.speak-grid{display:grid;gap:56px}
+.speaking h2{font-size:clamp(2.2rem,4.6vw,4rem);line-height:1.04;max-width:15ch}
+.speak-intro{margin-top:28px;color:var(--graphite);max-width:var(--measure)}
+.topics{list-style:none;margin:48px 0 0;padding:0;display:grid;gap:30px}
+.topic{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:baseline}
+.topic .diamond{transform:translateY(-3px) rotate(45deg)}
+.topic h3{font-size:1.45rem;line-height:1.25;font-weight:400}
+.topic p{margin-top:6px;color:var(--graphite);font-size:1rem;max-width:56ch}
+.formats{margin:52px 0 0;display:grid;grid-template-columns:1fr;gap:0;border-top:1px solid var(--line)}
+.formats div{padding:18px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:9.5rem 1fr;gap:16px;align-items:baseline}
+.formats dt{font-family:var(--serif);font-size:1.25rem}
+.formats dd{margin:0;color:var(--graphite);font-size:.9375rem}
+.speaking .btn{margin-top:44px}
+.speak-media{position:relative}
+.speak-main{margin:0;overflow:hidden;aspect-ratio:4/5;
+  --mx:linear-gradient(to right, transparent 0, #000 24%, #000 88%, transparent 100%);
+  --my:linear-gradient(to bottom, transparent 0, #000 8%, #000 76%, transparent 100%)}
+.speak-main img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+@media (min-width:900px){
+  .speak-grid{grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(48px,6vw,112px);align-items:start}
+  .speak-media{position:sticky;top:108px;margin-top:24px}
+}
+
+/* ============ BOOK ============ */
+.book{background:var(--stone);padding-block:var(--section);overflow:hidden}
+.book-grid{display:grid;gap:56px;align-items:center}
+.cover{margin:0 auto;width:min(72%, 380px);box-shadow:0 2px 4px rgba(60,52,38,.12),0 30px 60px -20px rgba(60,52,38,.38),0 60px 120px -40px rgba(60,52,38,.25)}
+.cover img{width:100%;height:auto}
+.book h2{margin-top:24px;font-size:clamp(2.6rem,5.6vw,5rem);line-height:1;font-style:italic;letter-spacing:-.025em}
+.book-sub{margin-top:14px;font-family:var(--serif);font-size:clamp(1.2rem,1.7vw,1.45rem);color:var(--graphite)}
+.book-body{margin-top:28px;color:var(--graphite);max-width:54ch}
+.notify{margin-top:36px;max-width:30rem}
+.notify label{display:block;font-size:.875rem;font-weight:500;margin-bottom:8px}
+.notify-row{display:flex;gap:0}
+.notify input{flex:1;min-width:0}
+.notify .btn{flex:none}
+.hint{margin-top:10px;font-size:.875rem;color:var(--muted)}
+@media (min-width:900px){
+  .book-grid{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(56px,7vw,128px)}
+  .cover{width:min(100%,400px);margin:0 0 0 auto}
+}
+@media (max-width:479px){
+  .notify-row{flex-direction:column;gap:12px}
+}
+
+/* ============ ABOUT ============ */
+.about{padding-block:var(--section)}
+.about h2{font-size:clamp(2.4rem,5.4vw,4.75rem);line-height:1.02;max-width:16ch}
+.about-grid{margin-top:64px;display:grid;gap:44px}
+.about-a,.about-b{margin:0;overflow:hidden}
+.about-a{--mx:linear-gradient(to right, transparent 0, #000 10%, #000 72%, transparent 100%)}
+.about-b{--mx:linear-gradient(to right, transparent 0, #000 30%, #000 84%, transparent 100%)}
+.about-a{aspect-ratio:3/4}
+.about-b{aspect-ratio:3/4;width:62%;justify-self:end}
+.about-a img,.about-b img{width:100%;height:100%;object-fit:cover}
+.about-a img{object-position:50% 40%}
+.about-b img{object-position:50% 25%}
+.about-text p{color:var(--graphite);max-width:var(--measure)}
+.about-text p + p{margin-top:1.1em}
+.about-text p.first{font-family:var(--serif);font-size:clamp(1.3rem,1.8vw,1.55rem);line-height:1.45;font-weight:300;color:var(--ink)}
+.founder-quote{margin:44px 0 0;padding-left:26px;border-left:1px solid var(--gold)}
+.founder-quote p{font-family:var(--serif);font-style:italic;font-size:clamp(1.45rem,2.2vw,1.9rem);line-height:1.35;color:var(--ink) !important}
+.founder-quote footer{margin-top:14px;font-size:.875rem;color:var(--muted)}
+@media (min-width:900px){
+  .about-grid{grid-template-columns:minmax(0,4fr) minmax(0,5fr) minmax(0,3fr);gap:clamp(36px,4vw,72px);align-items:start}
+  .about-b{width:100%;margin-top:180px}
+}
+
+/* ============ BOOKING ============ */
+.booking{padding-block:var(--section);border-top:1px solid var(--line)}
+.booking-grid{display:grid;gap:56px}
+.booking h2{font-size:clamp(2.4rem,5.4vw,4.75rem);line-height:1.02;max-width:9.5em}
+.booking-intro{margin-top:24px;color:var(--graphite);max-width:42ch}
+.booking-fig{margin:48px 0 0;overflow:hidden;aspect-ratio:4/5;max-width:360px;
+  --mx:linear-gradient(to right, transparent 0, #000 14%, #000 86%, transparent 100%)}
+.booking-fig img{width:100%;height:100%;object-fit:cover;object-position:50% 55%}
+@media (max-width:899px){.booking-fig{display:none}}
+.form{display:grid;gap:24px}
+.field{display:grid;gap:8px}
+.field label{font-size:.875rem;font-weight:500;color:var(--ink)}
+.field .opt{font-weight:400;color:var(--muted)}
+input,select,textarea{
+  width:100%;font:400 1rem/1.4 var(--sans);color:var(--ink);
+  background:#FFFFFF;border:1px solid #BDB8AE;border-radius:0;
+  padding:14px 16px;min-height:52px;appearance:none;-webkit-appearance:none;
+  transition:border-color .25s,box-shadow .25s;
+}
+textarea{min-height:150px;resize:vertical}
+select{background-image:linear-gradient(45deg,transparent 50%,var(--ink) 50%),linear-gradient(135deg,var(--ink) 50%,transparent 50%);background-position:calc(100% - 22px) 50%,calc(100% - 16px) 50%;background-size:6px 6px;background-repeat:no-repeat;padding-right:44px}
+input::placeholder,textarea::placeholder{color:#7A7880}
+input:focus-visible,select:focus-visible,textarea:focus-visible{outline:none;border-color:var(--ink);box-shadow:0 0 0 1px var(--ink)}
+[aria-invalid="true"]{border-color:#9B2C2C}
+.err{font-size:.875rem;color:#9B2C2C;min-height:0}
+.err:empty{display:none}
+.form-row{display:grid;gap:24px}
+@media (min-width:600px){.form-row{grid-template-columns:1fr 1fr}}
+.form .btn{justify-self:start;margin-top:4px}
+.form-foot{font-size:.875rem;color:var(--muted)}
+.success{display:none;border-top:1px solid var(--ink);padding-top:28px}
+.success.is-shown{display:block}
+.success h3{font-size:2rem;font-weight:300}
+.success p{margin-top:10px;color:var(--graphite);max-width:46ch}
+@media (min-width:900px){
+  .booking-grid{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(56px,7vw,128px)}
+}
+
+.cta-note{margin-top:14px;font-size:.875rem;color:var(--muted)}
+.booking-cta{margin-top:32px}
+.booking-cta .cta-note{margin-top:12px}
+.invite-title{font-size:clamp(1.9rem,2.8vw,2.5rem);line-height:1.1;font-weight:300}
+.invite-intro{margin:14px 0 32px;color:var(--graphite);max-width:48ch}
+@media (min-width:900px){.invite{padding-top:10px}}
+@media (max-width:899px){.invite{border-top:1px solid var(--line);padding-top:48px}}
+
+/* ============ INTRO: BROUGHT INTO FOCUS ============ */
+.kli{display:none}
+html.kl-intro-on,html.kl-intro-on body{overflow:hidden}
+html.kl-intro-on .kli{display:block;position:fixed;inset:0;z-index:90;cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.kli[hidden]{display:none !important}
+.kli-bg{position:absolute;inset:0;background:var(--paper)}
+.kli-bloom{position:absolute;left:50%;top:47%;width:110vmax;height:110vmax;margin:-55vmax 0 0 -55vmax;border-radius:50%;will-change:opacity;
+  background:radial-gradient(closest-side,rgba(255,255,255,.96),rgba(255,253,249,.6) 36%,rgba(255,255,255,0) 72%);opacity:0;pointer-events:none}
+.kli-iris{--s:min(62vmin,460px);position:absolute;left:50%;top:50%;width:var(--s);height:var(--s);margin:calc(var(--s) / -2) 0 0 calc(var(--s) / -2);opacity:0;overflow:visible;pointer-events:none}
+.kli-iris circle,.kli-iris line{fill:none;stroke:var(--gold);stroke-width:1;vector-effect:non-scaling-stroke}
+.kli-ring{stroke-dasharray:604;stroke-dashoffset:604;stroke-opacity:.75}
+.kli-stage{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(4px,1.4vh,16px);padding:0 var(--gutter);text-align:center;pointer-events:none}
+.kli-line{margin:0;font-family:var(--serif);font-weight:300;font-size:clamp(2rem,6.2vw,4.4rem);line-height:1.14;letter-spacing:-.01em;color:var(--ink);white-space:nowrap;opacity:0;will-change:filter,opacity,transform}
+.kli-focus{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);margin:0 auto;padding:0 var(--gutter);max-width:min(100%, 1320px);
+  /* a strong line, dead centre, balanced lines, no orphans; sized so the name that follows is the peak */
+  font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(2.6rem,6.25vw,7rem);line-height:1.06;letter-spacing:-.02em;text-align:center;text-wrap:balance;color:var(--ink);opacity:0;will-change:filter,opacity}
+/* Focus line, large screens only: a touch smaller and capped, so it stays easy to take in on wide displays. */
+@media (min-width:900px){ .kli-focus{font-size:clamp(2.6rem,5.5vw,5.25rem)} }
+.kli-who{position:absolute;left:0;top:0;pointer-events:none;will-change:transform}
+.kli-name.hero-name{margin:0;font-family:var(--serif);font-weight:300;font-optical-sizing:auto;letter-spacing:-.03em;opacity:0;will-change:filter,opacity}
+.kli-role{opacity:0}
+.kli-ctrl{position:absolute;z-index:2;top:max(12px,env(safe-area-inset-top));right:max(calc(var(--gutter) - 12px),env(safe-area-inset-right));display:flex;align-items:center}
+.kli-btn{min-height:44px;padding:0 12px;background:none;border:0;font:500 .875rem/1 var(--sans);letter-spacing:.01em;color:var(--graphite);cursor:pointer;transition:color .2s}
+.kli-btn:hover{color:var(--ink)}
+.kli-sep{width:1px;height:14px;background:var(--line)}
+.kli-start{position:absolute;inset:0;z-index:3;display:grid;place-items:center;background:var(--paper)}
+.kli-start-card{display:grid;justify-items:center;gap:36px;padding:24px;text-align:center}
+.kli-start-mark{margin:0;font:300 clamp(48px,10vw,96px)/.95 var(--serif);letter-spacing:-.03em;color:var(--ink)}
+.kli-start-rule{width:48px;height:1px;background:var(--gold)}
+.kli-start .btn{min-height:56px;padding:0 36px;font-size:1rem}
+.kli-start-card .kli-start-alt{margin-top:-20px}
+.kli-start-alt{min-height:44px;padding:0 8px;background:none;border:0;cursor:pointer;font:500 .9375rem/1 var(--sans);color:var(--graphite);
+  text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:5px;transition:color .2s}
+.kli-start-alt:hover{color:var(--ink)}
+html.kl-awaiting .kli-ctrl{z-index:4}
+html.kl-awaiting #kliSound,html.kl-awaiting .kli-sep{display:none}
+.kli-start[hidden]{display:none}
+html.kl-capture .kli-ctrl{display:none}
+html.kl-capture .kli{cursor:default}
+/* Reduced motion: one composed still, no movement */
+html.kl-intro-still .kli{cursor:default}
+html.kl-intro-still .kli-bloom{opacity:.5}
+html.kl-intro-still .kli-line{opacity:1;white-space:normal}
+html.kl-intro-still .kli-focus{position:static;transform:none;opacity:1;margin-top:clamp(18px,4vh,40px);font-size:clamp(1.4rem,3.4vw,2.6rem)}
+html.kl-intro-still #kliSound,html.kl-intro-still .kli-sep{display:none}
+
+/* ============ FOOTER ============ */
+.footer{padding:72px 0 40px;border-top:1px solid var(--line)}
+.footer-grid{display:grid;gap:36px}
+.footer .wordmark{font-size:2rem}
+.footer-tag{margin-top:10px;color:var(--graphite);font-size:.9375rem;max-width:36ch}
+.footer ul{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.footer ul a{display:inline-block;padding:11px 0;font-size:.9375rem;color:var(--graphite);text-decoration:none}
+.footer ul a:hover{color:var(--ink)}
+.footer-h{font-size:.875rem;font-weight:500;color:var(--ink);margin-bottom:6px}
+.legal{margin-top:56px;padding-top:24px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;font-size:.875rem;color:var(--muted)}
+@media (min-width:900px){
+  .footer-grid{grid-template-columns:2fr 1fr 1fr 1fr}
+}
+
+/* Parallax figures get a little extra image to travel in */
+[data-parallax] img{will-change:transform}
+  .hp{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ================= INTRO: BROUGHT INTO FOCUS ================= -->
+<div class="kli" id="kli" role="region" aria-label="Introduction">
+  <div class="kli-bg"></div>
+  <div class="kli-bloom" aria-hidden="true"></div>
+  <svg class="kli-iris" viewBox="-100 -100 200 200" aria-hidden="true" focusable="false">
+    <circle class="kli-ring" r="96" transform="rotate(-90)"></circle>
+    <g class="kli-blades"><line></line><line></line><line></line><line></line><line></line><line></line></g>
+  </svg>
+  <div class="kli-stage">
+    <p class="kli-line">Your voice, heard.</p>
+    <p class="kli-line">Your systems, automated.</p>
+    <p class="kli-line">Your vision, realized.</p>
+    <p class="kli-focus">You&rsquo;ve found where it all comes into focus.</p>
+  </div>
+  <div class="kli-who" aria-hidden="true">
+    <p class="kli-name hero-name" translate="no"><span class="line"><span>Kenneth</span></span><span class="line line--indent"><span>Lamor</span></span></p>
+    <p class="kli-role hero-role">Brand Strategist &amp; Consultant</p>
+  </div>
+  <div class="kli-ctrl">
+    <button class="kli-btn" id="kliSound" type="button" aria-pressed="false">Sound on</button>
+    <span class="kli-sep" aria-hidden="true"></span>
+    <button class="kli-btn" id="kliSkip" type="button">Skip intro</button>
+  </div>
+  <div class="kli-start" hidden>
+    <div class="kli-start-card">
+      <p class="kli-start-mark" translate="no">Kenneth Lamor</p>
+      <span class="kli-start-rule" aria-hidden="true"></span>
+      <button class="btn" id="kliStart" type="button">Play with sound</button>
+      <button class="kli-start-alt" id="kliStartSilent" type="button">Enter without sound</button>
+    </div>
+  </div>
+</div>
+
+<header class="nav" id="top">
+  <div class="wrap">
+    <a class="wordmark" href="#top" translate="no" aria-label="Kenneth Lamor, back to top">Kenneth Lamor</a>
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="#approach">Approach</a></li>
+        <li><a href="#work">Engagements</a></li>
+        <li><a href="#method">Method</a></li>
+        <li><a href="#speaking">Speaking</a></li>
+        <li><a href="#wisdom-is-currency">Book</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a class="btn" href="https://signaturebranding.app/brand-assessment" target="_blank" rel="noopener">Take the assessment</a></li>
+      </ul>
+    </nav>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="drawer">Menu</button>
+  </div>
+</header>
+
+<div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Site menu">
+  <div class="drawer-top">
+    <span class="wordmark" translate="no">Kenneth Lamor</span>
+    <button class="menu-btn" type="button" data-close style="display:inline-flex">Close</button>
+  </div>
+  <ul>
+    <li><a href="#approach">Approach</a></li>
+    <li><a href="#work">Engagements</a></li>
+    <li><a href="#method">Method</a></li>
+    <li><a href="#speaking">Speaking</a></li>
+    <li><a href="#wisdom-is-currency">Book</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
+  <a class="btn" href="https://signaturebranding.app/brand-assessment" target="_blank" rel="noopener">Take the assessment</a>
+</div>
+
+<main id="main">
+
+<!-- ================= HERO ================= -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <h1 class="hero-name" id="hero-title" translate="no">
+        <span class="line"><span>Kenneth</span></span>
+        <span class="line line--indent"><span>Lamor</span></span>
+      </h1>
+      <div class="hero-meta">
+        <p class="hero-role">Brand Strategist &amp; Consultant</p>
+        <p class="hero-statement">Your vision, your brand, <span class="hero-hold">your purpose&hellip; <span class="hero-caps">EXECUTED.</span></span></p>
+        <div class="hero-ctas">
+          <a class="btn" href="https://signaturebranding.app/brand-assessment" target="_blank" rel="noopener">Start with the Brand Assessment</a>
+          <a class="tlink tlink--solo" href="#invite">Invite Kenneth to speak</a>
+        </div>
+        <p class="cta-note">Two minutes. Then we&rsquo;ll find a time to talk.</p>
+      </div>
+    </div>
+    <figure class="hero-figure feather">
+      <img src="assets/hero-ivory-768.webp"
+           srcset="assets/hero-ivory-480.webp 480w, assets/hero-ivory-768.webp 768w"
+           sizes="(min-width: 900px) 620px, 100vw"
+           width="768" height="1344" fetchpriority="high"
+           alt="Kenneth Lamor standing in a white shirt and cream trousers, hands in pockets, in soft light against an ivory wall">
+    </figure>
+  </div>
+</section>
+
+<!-- ================= PROOF ================= -->
+<section class="proof" aria-label="Track record">
+  <div class="wrap">
+    <ul class="proof-list">
+      <li><span class="proof-fig">20&nbsp;years</span><span class="proof-cap">behind the lens, the last ten focused on brands</span></li>
+      <li><span class="proof-fig">7,000+</span><span class="proof-cap">sessions photographed</span></li>
+      <li><span class="proof-fig">500+</span><span class="proof-cap">five-star reviews</span></li>
+      <li><span class="proof-fig">Author</span><span class="proof-cap"><em>Wisdom Is Currency</em>, forthcoming</span></li>
+      <li><span class="proof-fig">Founder</span><span class="proof-cap">Signature Branding &amp; Marketing, and builder of&nbsp;signaturebranding.app</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= PROBLEM ================= -->
+<section class="problem" id="approach" aria-labelledby="approach-title">
+  <div class="wrap problem-grid">
+    <figure class="problem-fig feather" data-parallax>
+      <img src="assets/problem-laptop-bw-768.webp"
+           srcset="assets/problem-laptop-bw-480.webp 480w, assets/problem-laptop-bw-768.webp 768w"
+           sizes="(min-width: 900px) 38vw, 100vw" width="768" height="1344" loading="lazy" decoding="async"
+           alt="Black and white portrait of Kenneth seated by a bright window with a laptop on his knee">
+    </figure>
+    <div class="problem-body">
+      <h2 id="approach-title">Beautiful brand assets. Sitting in Dropbox.</h2>
+      <div class="lede">
+        <p>Here’s what I noticed, shoot after shoot, for twenty years. People walked out of my studio with beautiful images and no idea what to do with them.</p>
+        <p>The photos were fine. The brand underneath them was a fog. Same pattern, every single time. That pattern is the work.</p>
+      </div>
+      <div class="notes">
+        <article class="note">
+          <h3>The trilemma</h3>
+          <p>Consistency, creativity, budget. Most owners get told to pick two. So the brand stalls, and they blame themselves for it.</p>
+        </article>
+        <article class="note">
+          <h3>The asset-to-deployment gap</h3>
+          <p>A brand kit nobody deploys is an expensive screensaver. The space between having assets and using them is where most brands quietly die.</p>
+        </article>
+        <article class="note">
+          <h3>Brand ownership</h3>
+          <p>Most agencies sell you work. The work isn’t yours. Owning your brand should mean something you can actually hold.</p>
+        </article>
+        <article class="note">
+          <h3>System over hustle</h3>
+          <p>I stopped trying to be consistent. I built a system that’s consistent for me. Willpower runs out by March. Systems don’t.</p>
+        </article>
+      </div>
+      <p class="closing">None of this is a mystery. It’s mechanics. And mechanics can be taught.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ENGAGEMENTS ================= -->
+<section class="work" id="work" aria-labelledby="work-title">
+  <div class="wrap">
+    <div class="work-head">
+      <h2 id="work-title">Three ways to work with me.</h2>
+      <p class="work-intro">Every engagement starts the same way. A two-minute Brand Assessment tells me where your brand is today. Then we talk about where the business is going, and the gap between the two.</p>
+    </div>
+    <ul class="offers">
+      <li class="offer">
+        <h3>Brand strategy consulting</h3>
+        <div>
+          <p class="offer-desc">You know something’s off with your brand, but you can’t name it yet. We find the gap, call it plainly, and map what to build first.</p>
+          <p class="offer-fit"><strong>Best for</strong> founders and executives at a turning point.</p>
+        </div>
+        <a class="tlink tlink--solo" href="https://signaturebranding.app/brand-assessment" target="_blank" rel="noopener">Take the assessment<span class="sr-only"> for brand strategy consulting</span></a>
+      </li>
+      <li class="offer">
+        <h3>Brand automation</h3>
+        <div>
+          <p class="offer-desc">Authenticity meets AI. We start with the real you: real brand assets, a real strategy, your actual voice. Then AI and automation scale it on <a class="tlink" href="#platform">the platform I built</a>, so your brand shows up every week without losing what made it yours.</p>
+          <p class="offer-fit"><strong>Best for</strong> brands ready to scale without sounding like everybody else.</p>
+        </div>
+        <a class="tlink tlink--solo" href="https://signaturebranding.app/brand-assessment" target="_blank" rel="noopener">Take the assessment<span class="sr-only"> for brand automation</span></a>
+      </li>
+      <li class="offer">
+        <h3>Ongoing advisory</h3>
+        <div>
+          <p class="offer-desc">A strategist in your corner, month to month. Decisions get made faster when somebody at the table has already seen this movie.</p>
+          <p class="offer-fit"><strong>Best for</strong> leaders whose brand has to keep pace with the business.</p>
+        </div>
+        <a class="tlink tlink--solo" href="https://signaturebranding.app/brand-assessment" target="_blank" rel="noopener">Take the assessment<span class="sr-only"> for ongoing advisory</span></a>
+      </li>
+    </ul>
+    <p class="work-note"><span class="diamond" aria-hidden="true"></span><span>When the plan calls for execution, my company <a class="tlink" href="https://signaturebrandmarketing.com" target="_blank" rel="noopener">Signature Branding &amp; Marketing</a> builds it.</span></p>
+  </div>
+</section>
+
+<!-- ================= METHOD ================= -->
+<section class="method" id="method" aria-labelledby="method-title">
+  <div class="wrap">
+    <p class="label">The method</p>
+    <h2 id="method-title">Signature DNA<span class="tm">&trade;</span></h2>
+    <p class="thesis">AI can imitate anyone’s handwriting. It can’t produce your signature unless you give it your DNA.</p>
+    <ol class="steps">
+      <li class="step">
+        <span class="step-num" aria-hidden="true">1</span>
+        <h3>Authenticate</h3>
+        <p>Your story, your voice, your real image. We find what&rsquo;s genuinely you and put it into words. Your brand starts from what&rsquo;s true.</p>
+      </li>
+      <li class="step">
+        <span class="step-num" aria-hidden="true">2</span>
+        <h3>Capture</h3>
+        <p>Then we turn it into real brand assets: photo, video and content you can use everywhere, a defined voice, and a brand kit you own, not one your agency keeps.</p>
+      </li>
+      <li class="step">
+        <span class="step-num" aria-hidden="true">3</span>
+        <h3>Scale</h3>
+        <p>AI and automation, on the platform I built, carry it to every place your customers are. Consistent every week, without losing what makes it yours.</p>
+      </li>
+      <li class="step">
+        <span class="step-num" aria-hidden="true">4</span>
+        <h3>Impact</h3>
+        <p>A brand people trust before they ever meet you. That trust is what opens doors: new clients, bigger stages, better opportunities.</p>
+      </li>
+    </ol>
+    <p class="kit">Start the first step on your own, free. No email, no catch. <a class="tlink" href="https://github.com/Signaturebrandmarketing/signature-dna" target="_blank" rel="noopener">Get the Signature DNA Kit</a></p>
+  </div>
+</section>
+
+<!-- ================= PLATFORM ================= -->
+<section class="platform" id="platform" aria-labelledby="platform-title">
+  <div class="wrap">
+    <div class="platform-grid">
+      <div>
+        <h2 id="platform-title">I don&rsquo;t just advise. I built the system.</h2>
+        <div class="platform-why">
+          <p>Here&rsquo;s what kept happening. I&rsquo;d hand a client beautiful images and a solid plan, and then real life showed up. No time, no team, no budget to keep it going. The strategy was right. The follow-through was the problem.</p>
+          <p>So I stopped writing plans that run on willpower and built the platform that runs them. I run my own brand on it.</p>
+        </div>
+        <a class="btn btn--ghost" href="https://signaturebranding.app" target="_blank" rel="noopener">Explore Signature AI Branding <span class="arrow" aria-hidden="true">&rarr;</span></a>
+      </div>
+      <ul class="caps">
+        <li class="cap">
+          <h3>Authentic first, then AI</h3>
+          <p>It starts with real headshots, shot in person. Those images power the AI, which builds branded imagery in styles made for your industry, from consulting and legal to faith leaders and speakers.</p>
+        </li>
+        <li class="cap">
+          <h3>Your voice, captured</h3>
+          <p>Strategic profiling captures your authority, your communication style and your brand personality, so every AI output sounds like you.</p>
+        </li>
+        <li class="cap">
+          <h3>A brand that keeps running</h3>
+          <p>Live Loop&trade; turns your brand assets and voice into an engine that builds your authority every week. Deliverables live in one client vault, and real people manage the system behind it.</p>
+        </li>
+      </ul>
+    </div>
+    <figure class="screen">
+      <div class="screen-bar" aria-hidden="true"><span class="screen-url">signaturebranding.app</span></div>
+      <img src="assets/app-signaturebranding-1440.webp"
+           srcset="assets/app-signaturebranding-800.webp 800w, assets/app-signaturebranding-1440.webp 1440w"
+           sizes="(min-width: 1360px) 1200px, 92vw" width="1440" height="640" loading="lazy" decoding="async"
+           alt="The signaturebranding.app home page: Create the brand. Power the growth. Automate the success. AI-powered branding infrastructure for modern professionals.">
+    </figure>
+    <p class="screen-cap">The Signature AI Branding System, live at signaturebranding.app.</p>
+  </div>
+</section>
+
+<!-- ================= SPEAKING ================= -->
+<section class="speaking" id="speaking" aria-labelledby="speaking-title">
+  <div class="wrap speak-grid">
+    <div>
+      <h2 id="speaking-title">Talks that hand people the working parts.</h2>
+      <p class="speak-intro">Twenty years across the table from business owners gave me the stories. Building every layer of my company by hand gave me the receipts. On stage I slow it all the way down, so your audience walks out with mechanics they can use Monday morning.</p>
+      <ul class="topics">
+        <li class="topic"><span class="diamond" aria-hidden="true"></span><div><h3>AI vs. human is the wrong debate</h3><p>AI with context versus AI without it. Why most AI content sounds like nobody, and how to fix it at the source.</p></div></li>
+        <li class="topic"><span class="diamond" aria-hidden="true"></span><div><h3>The asset-to-deployment gap</h3><p>Why beautiful brand assets sit unused, and the simple systems that put them to work.</p></div></li>
+        <li class="topic"><span class="diamond" aria-hidden="true"></span><div><h3>I stopped trying to be consistent</h3><p>System over hustle. How I built a company one layer at a time, and what each layer made possible.</p></div></li>
+        <li class="topic"><span class="diamond" aria-hidden="true"></span><div><h3>Wisdom is currency</h3><p>Know the value of what you know, or get shortchanged at the exchange. The thesis behind my forthcoming book.</p></div></li>
+      </ul>
+      <dl class="formats">
+        <div><dt>Keynote</dt><dd>Conferences, associations and company gatherings.</dd></div>
+        <div><dt>Workshop</dt><dd>Hands-on sessions where teams build their brand foundation in the room.</dd></div>
+        <div><dt>Podcast &amp; fireside</dt><dd>Long-form conversation about brand, AI and building systems.</dd></div>
+      </dl>
+      <a class="btn" href="#invite">Invite Kenneth to speak</a>
+    </div>
+    <div class="speak-media">
+      <figure class="speak-main feather" data-parallax>
+        <img src="assets/speaking-armchair-mic-768.webp"
+             srcset="assets/speaking-armchair-mic-480.webp 480w, assets/speaking-armchair-mic-768.webp 768w"
+             sizes="(min-width: 900px) 36vw, 100vw" width="768" height="1344" loading="lazy" decoding="async"
+             alt="Kenneth seated in a cream armchair beside a studio microphone, sheer curtains behind him">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BOOK ================= -->
+<section class="book" id="wisdom-is-currency" aria-labelledby="book-title">
+  <div class="wrap book-grid">
+    <figure class="cover">
+      <img src="assets/wic-cover-600.webp" srcset="assets/wic-cover-360.webp 360w, assets/wic-cover-600.webp 600w"
+           sizes="(min-width: 900px) 400px, 72vw" width="600" height="900" loading="lazy" decoding="async"
+           alt="Cover of Wisdom Is Currency: Creating a Cycle of Prosperity in Your Life, by Kenneth Lamor Bridgett">
+    </figure>
+    <div>
+      <p class="label">Forthcoming</p>
+      <h2 id="book-title">Wisdom Is Currency</h2>
+      <p class="book-sub">Creating a Cycle of Prosperity in Your Life</p>
+      <p class="book-body">Most of us were taught that having ideas is the same as building them. It isn’t. Wisdom is a currency. You can spend it, invest it and earn it, and there’s a cycle that turns it into a life that’s free. I’m finishing the book now.</p>
+      <form class="notify" id="notify-form" novalidate>
+        <div class="hp" aria-hidden="true"><label>Company <input type="text" name="company" tabindex="-1" autocomplete="off"></label></div>
+        <label for="notify-email">Email address</label>
+        <div class="notify-row">
+          <input id="notify-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@company.com" required aria-describedby="notify-hint notify-err" spellcheck="false">
+          <button class="btn" type="submit">Get notified</button>
+        </div>
+        <p class="err" id="notify-err" aria-live="polite"></p>
+        <p class="hint" id="notify-hint">One email when it’s out. That’s it.</p>
+      </form>
+      <div class="success" id="notify-success" tabindex="-1" role="status">
+        <h3>You’re on the list.</h3>
+        <p>I’ll send one note the day the book is out.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="about" id="about" aria-labelledby="about-title">
+  <div class="wrap">
+    <h2 id="about-title">The camera was never the detour.</h2>
+    <div class="about-grid">
+      <figure class="about-a feather" data-parallax>
+        <img src="assets/about-laptop-window-768.webp"
+             srcset="assets/about-laptop-window-480.webp 480w, assets/about-laptop-window-768.webp 768w"
+             sizes="(min-width: 900px) 30vw, 100vw" width="768" height="1344" loading="lazy" decoding="async"
+             alt="Kenneth smiling, seated by a sunlit window with a laptop, in a white shirt and cream trousers">
+      </figure>
+      <div class="about-text">
+        <p class="first">People think I evolved into a brand strategist. The truth is, the full-service solution was always the goal. Photography was the access pass.</p>
+        <p>A photoshoot is intimate. You spend real time with someone, and you see who they are when the camera’s down. Twenty years and 7,000+ sessions later, I had a data set nobody else had: exactly what every business owner is actually missing.</p>
+        <p>So I built it, one layer at a time. A fifteen-minute headshot. A fast edit-and-return workflow. A three-day event system that can open a new city on demand. A team. Automations. Then AI tied it all together into one platform, <a class="tlink" href="https://signaturebranding.app" target="_blank" rel="noopener">signaturebranding.app</a>. None of it was a leap. Every layer earned the next one.</p>
+        <p>That’s <a class="tlink" href="https://signaturebrandmarketing.com" target="_blank" rel="noopener">Signature Branding &amp; Marketing</a>. And it’s why I can sit across from you and talk about your brand with receipts instead of theory.</p>
+        <blockquote class="founder-quote">
+          <p>&ldquo;I built the AI branding system I actually wanted my clients to have.&rdquo;</p>
+          <footer>Kenneth Lamor Bridgett, Founder, Signature Branding &amp; Marketing</footer>
+        </blockquote>
+      </div>
+      <figure class="about-b feather">
+        <img src="assets/about-standing-bw-768.webp"
+             srcset="assets/about-standing-bw-480.webp 480w, assets/about-standing-bw-768.webp 768w"
+             sizes="(min-width: 900px) 22vw, 62vw" width="768" height="1344" loading="lazy" decoding="async"
+             alt="Black and white full-length portrait of Kenneth leaning against a white wall, adjusting his watch">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BOOKING ================= -->
+<section class="booking" id="contact" aria-labelledby="contact-title">
+  <div class="wrap booking-grid">
+    <div>
+      <h2 id="contact-title">Let&rsquo;s talk about your brand.</h2>
+      <p class="booking-intro">Start with the Brand Assessment. Two minutes to tell me where your brand is today, messy version included. Then we find a time to talk.</p>
+      <div class="booking-cta">
+        <a class="btn" href="https://signaturebranding.app/brand-assessment" target="_blank" rel="noopener">Start with the Brand Assessment</a>
+        <p class="cta-note">Opens in a new tab. You&rsquo;ll pick a time to talk at the end.</p>
+      </div>
+      <figure class="booking-fig feather">
+        <img src="assets/booking-armchair-768.webp"
+             srcset="assets/booking-armchair-480.webp 480w, assets/booking-armchair-768.webp 768w"
+             sizes="340px" width="768" height="1344" loading="lazy" decoding="async"
+             alt="Kenneth seated in a cream armchair in a camel sweater, smiling, beside a studio microphone and soft window light">
+      </figure>
+    </div>
+    <div class="invite" id="invite">
+      <h3 class="invite-title">Invite Kenneth to speak</h3>
+      <p class="invite-intro">Keynotes, workshops, podcasts and firesides. Tell me about the room and I&rsquo;ll take it from there.</p>
+      <form class="form" id="invite-form" novalidate>
+        <div class="hp" aria-hidden="true"><label>Company <input type="text" name="company" tabindex="-1" autocomplete="off"></label></div>
+        <div class="form-row">
+          <div class="field">
+            <label for="f-name">Your name</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="e-name">
+            <p class="err" id="e-name" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label for="f-email">Email</label>
+            <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" spellcheck="false" required aria-describedby="e-email">
+            <p class="err" id="e-email" aria-live="polite"></p>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="f-org">Organization or event</label>
+            <input id="f-org" name="organization" type="text" autocomplete="organization">
+          </div>
+          <div class="field">
+            <label for="f-date">Event date <span class="opt">(if set)</span></label>
+            <input id="f-date" name="event_date" type="text" placeholder="e.g. March 2027">
+          </div>
+        </div>
+        <div class="field">
+          <label for="f-msg">Audience and format</label>
+          <textarea id="f-msg" name="message" placeholder="Who&rsquo;s in the room, how many, and what you want them to walk out with."></textarea>
+        </div>
+        <p class="err" id="invite-err" aria-live="polite"></p>
+        <button class="btn" type="submit">Send speaking inquiry</button>
+      </form>
+      <div class="success" id="invite-success" tabindex="-1" role="status">
+        <h3>Got it. Thank you.</h3>
+        <p>Your speaking inquiry is in. I&rsquo;ll read it personally and reply with next steps.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="wordmark" href="#top" translate="no">Kenneth Lamor</a>
+        <p class="footer-tag">Brand strategist. Founder of Signature Branding &amp; Marketing. Author of the forthcoming <em>Wisdom Is Currency</em>.</p>
+      </div>
+      <div>
+        <p class="footer-h">Work with me</p>
+        <ul>
+          <li><a href="https://signaturebranding.app/brand-assessment" target="_blank" rel="noopener">Take the assessment</a></li>
+          <li><a href="#invite">Invite Kenneth to speak</a></li>
+          <li><a href="#wisdom-is-currency">The book</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-h">Company &amp; platform</p>
+        <ul>
+          <li><a href="https://signaturebrandmarketing.com" target="_blank" rel="noopener">Signature Branding &amp; Marketing</a></li>
+          <li><a href="https://signaturebranding.app" target="_blank" rel="noopener">Signature AI Branding</a></li>
+          <li><a href="https://github.com/Signaturebrandmarketing/signature-dna" target="_blank" rel="noopener">Signature DNA Kit</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-h">Follow</p>
+        <ul>
+          <li><a href="https://www.linkedin.com/in/kenneth-bridgett-6549052a/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://www.facebook.com/kenneth.bridgett.2025/" target="_blank" rel="noopener">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <span>&copy; 2026 Kenneth Lamor Bridgett. All rights reserved.</span>
+      <span>Signature DNA is a trademark of Signature Branding &amp; Marketing.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  /* ---------- Nav hairline once the hero scrolls away ---------- */
+  const nav = document.querySelector('.nav');
+  const heroEnd = document.querySelector('.proof');
+  if ('IntersectionObserver' in window && heroEnd) {
+    new IntersectionObserver(([e]) => {
+      nav.classList.toggle('is-scrolled', e.boundingClientRect.top < 80);
+    }, { rootMargin: '-80px 0px 0px 0px', threshold: [0, 1] }).observe(heroEnd);
+  }
+
+  /* ---------- Mobile drawer ---------- */
+  const drawer = document.getElementById('drawer');
+  const openBtn = document.querySelector('.nav .menu-btn');
+  const closeBtn = drawer.querySelector('[data-close]');
+  const setDrawer = (open) => {
+    drawer.classList.toggle('is-open', open);
+    openBtn.setAttribute('aria-expanded', String(open));
+    document.body.style.overflow = open ? 'hidden' : '';
+    (open ? closeBtn : openBtn).focus({ preventScroll: true });
+  };
+  openBtn.addEventListener('click', () => setDrawer(true));
+  closeBtn.addEventListener('click', () => setDrawer(false));
+  drawer.addEventListener('click', (e) => { if (e.target.closest('a')) setDrawer(false); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && drawer.classList.contains('is-open')) setDrawer(false); });
+
+  /* ---------- Forms: sent to the personal-site-forms endpoint (saved first, then GHL + email) ---------- */
+  const FORMS_URL = 'https://stsowpflccehekknumkb.supabase.co/functions/v1/personal-site-forms';
+  const ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN0c293cGZsY2NlaGVra251bWtiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzEzMjE5OTUsImV4cCI6MjA4Njg5Nzk5NX0.zwoUs0YeooT7tVWxPZMJ9TlV_9WI4nkdvGckiAnKPx8'; // public anon key, safe to ship
+  const FAIL = 'Couldn\u2019t send. Please try again, or email ken@signaturebrandmarketing.com.';
+  const send = (payload) => fetch(FORMS_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', apikey: ANON, Authorization: 'Bearer ' + ANON },
+    body: JSON.stringify(payload),
+  }).then(async (r) => {
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok || !j.ok) throw new Error(j.error || FAIL);
+    return j;
+  });
+  const busy = (btn, on, label) => { btn.disabled = on; btn.textContent = on ? 'Sending\u2026' : label; };
+  const emailOk = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
+  const flag = (input, errEl, msg) => {
+    input.setAttribute('aria-invalid', msg ? 'true' : 'false');
+    errEl.textContent = msg || '';
+    return !msg;
+  };
+
+  const inq = document.getElementById('invite-form');
+  inq.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const n = inq.elements.name, m = inq.elements.email, errEl = document.getElementById('invite-err');
+    const okN = flag(n, document.getElementById('e-name'), n.value.trim() ? '' : 'Add your name so I know who I\u2019m talking to.');
+    const okM = flag(m, document.getElementById('e-email'), emailOk(m.value) ? '' : 'Enter an email like name@company.com.');
+    if (!okN) { n.focus(); return; }
+    if (!okM) { m.focus(); return; }
+    const btn = inq.querySelector('button[type="submit"]'), label = btn.textContent;
+    errEl.textContent = ''; busy(btn, true, label);
+    send({
+      form: 'speaking',
+      name: n.value.trim(),
+      email: m.value.trim(),
+      organization: inq.elements.organization.value.trim(),
+      event: inq.elements.event_date.value.trim(),
+      message: inq.elements.message.value.trim(),
+      company: inq.elements.company.value,
+    }).then(() => {
+      inq.hidden = true;
+      const s = document.getElementById('invite-success');
+      s.classList.add('is-shown'); s.focus();
+    }).catch((err) => { errEl.textContent = err.message || FAIL; busy(btn, false, label); });
+  });
+
+  const nf = document.getElementById('notify-form');
+  nf.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const m = nf.elements.email, errEl = document.getElementById('notify-err');
+    if (!flag(m, errEl, emailOk(m.value) ? '' : 'Enter an email like name@company.com.')) { m.focus(); return; }
+    const btn = nf.querySelector('button[type="submit"]'), label = btn.textContent;
+    busy(btn, true, label);
+    send({ form: 'book-notify', email: m.value.trim(), company: nf.elements.company.value })
+      .then(() => {
+        nf.hidden = true;
+        const s = document.getElementById('notify-success');
+        s.classList.add('is-shown'); s.focus();
+      })
+      .catch((err) => { errEl.textContent = err.message || FAIL; busy(btn, false, label); });
+  });
+});
+
+/* ---------- Intro: "Brought into focus" ----------
+   One GSAP timeline, four beats (aperture, three promises, the turn, the name), then a handoff
+   in which the intro name glides onto the real hero H1 while the ivory veil lifts off the portrait.
+   Sound cues are short synthesized AAC one-shots (audio/sfx.js, base64 so they load from file:// too),
+   scheduled on the Web Audio clock from the same cue list, so they stay locked to the picture.
+   Browsers block sound until a gesture: it plays silently with a "Sound on" toggle, remembers the
+   choice, and the demo launcher (PLAY-INTRO.html) passes ?sound=1. */
+document.addEventListener('DOMContentLoaded', () => {
+  const html = document.documentElement, kli = document.getElementById('kli');
+  if (!kli) return;
+  const $ = (q) => kli.querySelector(q);
+  const capture = html.classList.contains('kl-capture');
+  const reduceMQ = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const skipBtn = $('#kliSkip'), soundBtn = $('#kliSound'), startCard = $('.kli-start');
+  const clearHash = () => { if (location.hash === '#/intro') history.replaceState(null, '', location.pathname + location.search); };
+
+  /* Reduced motion: a still frame, dismissed with Continue or Escape */
+  if (html.classList.contains('kl-intro-still')) {
+    html.classList.add('kl-intro-live');
+    skipBtn.textContent = 'Continue';
+    const close = () => { html.classList.remove('kl-intro-on', 'kl-intro-still', 'kl-intro-live'); kli.hidden = true; clearHash(); };
+    skipBtn.addEventListener('click', close);
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+    skipBtn.focus({ preventScroll: true });
+    return;
+  }
+  if (!window.gsap) { html.classList.remove('kl-intro-on'); return; }
+
+  /* ---- Sound ---- */
+  const AC = window.AudioContext || window.webkitAudioContext;
+  // The name-hold fade: a steady dB ramp eased to zero, from the name going sharp to the handoff completing.
+  const FADE = { start: 9.8, end: 13.25 };
+  const fadeAt = (t) => { if (t <= FADE.start) return 1; if (t >= FADE.end) return 0; const x = (t - FADE.start) / (FADE.end - FADE.start); return Math.pow(10, -2.4 * x) * (1 - x * x * x * x); };
+  // Hall impulse response, generated once: 25 ms pre-delay (keeps the piano attack clear), a few early reflections,
+  // 2.4 s RT60, a tail that darkens as it decays, decorrelated L/R, unit energy. Seeded, so every load sounds the same.
+  function hallIR(c) {
+    const sr = c.sampleRate, PRE = 0.025, DUR = 2.6, RT = 2.4, n = Math.floor(DUR * sr), b = c.createBuffer(2, n, sr);
+    const taps = [[0.011, 0.5], [0.019, 0.35], [0.027, 0.3], [0.041, 0.22], [0.053, 0.18]];
+    for (let ch = 0; ch < 2; ch++) {
+      let seed = 1000 + ch; const rnd = () => { seed = (seed + 0x6D2B79F5) | 0; let x = Math.imul(seed ^ (seed >>> 15), 1 | seed); x = (x + Math.imul(x ^ (x >>> 7), 61 | x)) ^ x; return ((x ^ (x >>> 14)) >>> 0) / 4294967296 * 2 - 1; };
+      const d = b.getChannelData(ch); let y = 0, e = 0;
+      for (let i = 0; i < n; i++) {
+        const t = i / sr; if (t < PRE) continue;
+        const tt = t - PRE, fc = 2500 + 6500 * Math.exp(-tt / 0.6), a = 1 - Math.exp(-2 * Math.PI * fc / sr);
+        y += a * (rnd() - y); d[i] = y * Math.exp(-6.91 * tt / RT);
+      }
+      taps.forEach(([dl, g], k) => { d[Math.floor((PRE + dl + (ch ? 0.0017 : 0)) * sr)] += g * ((k + ch) % 2 === 0 ? 1 : -1) * 0.25; });
+      const f = Math.floor(0.1 * sr); for (let i = 0; i < f; i++) d[n - 1 - i] *= i / f;
+      for (let i = 0; i < n; i++) e += d[i] * d[i];
+      e = Math.sqrt(e); for (let i = 0; i < n; i++) d[i] /= e;
+    }
+    return b;
+  }
+  const Snd = {
+    ctx: null, out: null, buf: {}, on: false, live: [], loading: null,
+    pref: { get() { try { return localStorage.getItem('kl-sound') === '1'; } catch (_) { return false; } },
+            set(v) { try { localStorage.setItem('kl-sound', v ? '1' : '0'); } catch (_) {} } },
+    WET: 0.22,                 // reverb return, about -13 dB
+    init() {
+      if (!this.ctx && AC) {
+        const c = this.ctx = new AC();
+        this.out = c.createGain(); this.out.gain.value = 0.9; this.out.connect(c.destination);   // dry
+        // Shared hall send across the whole mix: convolver, low-cut the return at 200 Hz, modest wet level.
+        this.verb = c.createConvolver(); this.verb.normalize = false; this.verb.buffer = hallIR(c);
+        const lc = c.createBiquadFilter(); lc.type = 'highpass'; lc.frequency.value = 200; lc.Q.value = 0.6;
+        this.wet = c.createGain(); this.wet.gain.value = this.WET;
+        this.out.connect(this.verb); this.verb.connect(lc); lc.connect(this.wet); this.wet.connect(c.destination);
+        // a drier path for outdoor sounds (the porch chimes): straight out, plus only a fraction of the hall send
+        this.outDry = c.createGain(); this.outDry.gain.value = 0.9; this.outDry.connect(c.destination);
+      }
+      return !!this.ctx;
+    },
+    unlock(ms) { // resume() only succeeds inside a gesture (or once the browser allows sound); never wait forever
+      if (!this.init()) return Promise.resolve(false);
+      if (this.ctx.state === 'running') return Promise.resolve(true);
+      return Promise.race([this.ctx.resume().then(() => this.ctx.state === 'running').catch(() => false),
+                           new Promise((r) => setTimeout(() => r(this.ctx.state === 'running'), ms || 1200))]);
+    },
+    settle() { // outputLatency is only reported once the context has run briefly; wait for it (max 300 ms) before cueing
+      return new Promise((r) => { const t0 = performance.now(); const f = () => (!this.ctx || this.ctx.outputLatency > 0 || performance.now() - t0 > 300) ? r() : setTimeout(f, 20); f(); });
+    },
+    load() {
+      if (this.loading) return this.loading;
+      this.init();
+      const script = () => new Promise((res, rej) => { if (window.KL_SFX) return res(); const el = document.createElement('script'); el.src = 'audio/sfx.js'; el.onload = res; el.onerror = rej; document.head.appendChild(el); });
+      this.loading = script().then(() => Promise.all(Object.entries(window.KL_SFX).map(([k, b64]) => new Promise((res) => {
+        const bin = atob(b64), u = new Uint8Array(bin.length);
+        for (let i = 0; i < bin.length; i++) u[i] = bin.charCodeAt(i);
+        this.ctx.decodeAudioData(u.buffer, (b) => { this.buf[k] = b; res(); }, () => res());
+      })))).catch(() => {});
+      return this.loading;
+    },
+    play(cues, from) { // crossfades: anything already sounding fades out while the new start fades in, so the wind never drops
+      this.stop(0.15);
+      if (!this.on || !this.ctx) return;
+      // Latency-compensated: audio scheduled at context time T is heard at T + outputLatency. So the timeline moment
+      // that must be audible at `now` is from + lead + latency; every cue is placed relative to that.
+      const lead = 0.03, lat = Math.max(this.ctx.outputLatency || 0, this.ctx.baseLatency || 0);
+      const now = this.ctx.currentTime + lead, at = from + lead + lat;
+      this.log = { ctx0: now - lead, from, lat, cues: [] };
+      cues.forEach((c) => {
+        const b = this.buf[c.k]; if (!b) return;
+        const off = at - c.t; if (off >= b.duration) return;
+        this.log.cues.push({ k: c.k, when: now + Math.max(0, -off), offset: Math.max(0, off) });
+        const s = this.ctx.createBufferSource(), g = this.ctx.createGain(), level = c.g || 1;
+        s.buffer = b; s.connect(g);
+        let node = g;
+        if (c.fade) { // runtime name-hold fade for drop-in files (the beds have theirs baked in); its own node, so stop() never collides
+          if (at >= FADE.end) return;
+          const fg = this.ctx.createGain(), a = Math.max(at + (off > 0 ? 0.16 : 0), FADE.start);
+          fg.gain.value = fadeAt(at);
+          if (a < FADE.end) { const dur = FADE.end - a, curve = new Float32Array(64); for (let i = 0; i < 64; i++) curve[i] = fadeAt(a + dur * i / 63); fg.gain.setValueCurveAtTime(curve, now + (a - at), dur); }
+          g.connect(fg); node = fg;
+        }
+        if (c.send !== undefined) { // per-cue reverb send (1 = the normal hall amount)
+          node.connect(this.outDry); const sg = this.ctx.createGain(); sg.gain.value = 0.9 * c.send; node.connect(sg); sg.connect(this.verb);
+        } else node.connect(this.out);
+        if (off > 0) { g.gain.setValueAtTime(0, now); g.gain.linearRampToValueAtTime(level, now + 0.15); } else g.gain.value = level;
+        s.start(now + Math.max(0, -off), Math.max(0, off));
+        this.live.push({ s, g });
+      });
+      // the reverb return rides the same gradual fade, so the tail is silent as the handoff completes
+      const w = this.wet.gain; w.cancelScheduledValues(now); w.setValueAtTime(this.WET * fadeAt(at), now);
+      if (at < FADE.end) {
+        const a = Math.max(at, FADE.start), dur = FADE.end - a, curve = new Float32Array(64);
+        for (let i = 0; i < 64; i++) curve[i] = this.WET * fadeAt(a + dur * i / 63);
+        w.setValueCurveAtTime(curve, now + (a - at), dur);
+      }
+    },
+    stop(fade, tail) { // tail = also fade the reverb return, so nothing rings on after the intro
+      if (!this.ctx) return;
+      const t = this.ctx.currentTime;
+      this.live.forEach(({ s, g }) => { try { g.gain.setTargetAtTime(0, t, Math.max(0.001, (fade || 0) / 3)); s.stop(t + (fade || 0) + 0.05); } catch (_) {} });
+      this.live = [];
+      if (tail) { const w = this.wet.gain; w.cancelScheduledValues(t); w.setValueAtTime(w.value, t); w.linearRampToValueAtTime(0, t + Math.max(0.02, fade || 0)); }
+    }
+  };
+  // Cue times are on the timeline clock. No tones: an aperture click, pure air swishes that crest ~0.95s in
+  // (exactly as each line pulls sharp), a fuller swish on the name, all over a soft wind bed that runs from
+  // the first frame and fades out gradually across the whole name hold: baked into the wind, piano and name swish (a dropped-in chime gets the same fade at runtime via `fade: true`),
+  // a perceptually even fade from 9.8s (name sharp) to silence at 13.25s (handoff complete).
+  // Under everything: a soft jazz piano bed (Ebm11; re-voiced at line one, Ab13sus at line three, Ab13 under the focus line,
+  // Dbmaj9 as the name sharpens: each change lands with its swish, Ab13 now at 7.116 s and Dbmaj9 at 9.366 s),
+  // rendered from Apple's built-in sampled piano. Mix priority, measured: piano leads, wind under it, swishes as accents.
+  const CUES = [
+    { k: 'piano', t: 0, g: 1.36, bed: true }, { k: 'wind', t: 0, g: 0.44, bed: true }, { k: 'iris', t: 0.40, g: 0.85 },
+    // Each swish crests 0.55 s into its file; cue times put that crest one frame before the measured sharp frame
+    // of its text (line 1 2.533 s, line 2 3.833 s, line 3 5.117 s, focus 7.133 s, name 9.383 s), with the chord changes.
+    { k: 'swish1', t: 1.966, g: 0.199 }, { k: 'swish2', t: 3.266, g: 0.199 }, { k: 'swish3', t: 4.550, g: 0.199 },
+    { k: 'swishTurn', t: 6.566, g: 0.180 }, { k: 'swishName', t: 8.816, g: 0.199 },
+    // ── CHIME SLOT (empty for now: Ken is choosing the chimes) ─────────────────────────────────────────────────────────
+    // To drop a chime file in:
+    //   1. Encode it as AAC (.m4a), ideally a 4-5 s passage whose main ring lands as the name goes sharp (9.38 s on this
+    //      timeline, i.e. ~0.38 s into the file if the cue starts at 9.0 s). High-pass ~1 kHz if it carries wind or rumble.
+    //   2. Add it to audio/sfx.js under the key "chimes" (base64, like the others).
+    //   3. Uncomment the line below. `g` is its own level; `send: 0.5` gives it half the hall reverb; `fade: true` applies
+    //      the name-hold fade at runtime, so it reaches silence with everything else at the handoff (13.25 s).
+    //      Skip, Escape and beat-jumps already fade it with the rest of the mix.
+    // { k: 'chimes', t: 9.00, g: 1.0, send: 0.5, fade: true },
+  ];
+  const setSoundUI = (v) => { soundBtn.setAttribute('aria-pressed', String(v)); soundBtn.textContent = v ? 'Sound off' : 'Sound on'; };
+
+  /* ---- Picture ---- */
+  const L = { b2: 1.95, b3: 6.2, b4: 8.6, handoff: 12.25 }; // the focus line holds an extra 0.5s (display size); the name card holds ~2.5s
+  const lines = [...kli.querySelectorAll('.kli-line')], focusLine = $('.kli-focus'), who = $('.kli-who'),
+        nameEl = $('.kli-name'), roleEl = $('.kli-role'), bloom = $('.kli-bloom'), bg = $('.kli-bg'),
+        iris = $('.kli-iris'), ring = $('.kli-ring'), blades = [...kli.querySelectorAll('.kli-blades line')], ctrl = $('.kli-ctrl');
+  const R = 96, ir = { r: 0, rot: 0 };
+  let tl = null, ended = true, startW = innerWidth, awaiting = false;
+
+  // Six blade edges, each a chord of the lens ring at distance r from centre: r = 0 is a closed star, r near R is wide open.
+  function drawIris(r, rot) {
+    blades.forEach((ln, i) => {
+      const a = (rot + i * 60) * Math.PI / 180, px = r * Math.cos(a), py = r * Math.sin(a), dx = -Math.sin(a), dy = Math.cos(a), h = Math.sqrt(Math.max(0, R * R - r * r));
+      ln.setAttribute('x1', (px - h * dx).toFixed(2)); ln.setAttribute('y1', (py - h * dy).toFixed(2));
+      ln.setAttribute('x2', (px + h * dx).toFixed(2)); ln.setAttribute('y2', (py + h * dy).toFixed(2));
+    });
+  }
+  // Lay the intro name exactly over the hero H1 (same classes, same box), then return the offset to centre stage.
+  function place() {
+    const h1 = document.querySelector('.hero .hero-name'), role = document.querySelector('.hero .hero-role');
+    const hr = h1.getBoundingClientRect(), rr = role.getBoundingClientRect();
+    who.style.left = hr.left + 'px'; who.style.top = hr.top + 'px'; who.style.width = hr.width + 'px';
+    roleEl.style.marginTop = (rr.top - hr.bottom) + 'px';
+    roleEl.style.marginLeft = (rr.left - hr.left) + 'px';
+    const sp = [...h1.querySelectorAll('.line > span')].map((s) => s.getBoundingClientRect());
+    const left = Math.min(...sp.map((s) => s.left)), right = Math.max(...sp.map((s) => s.right)), top = Math.min(...sp.map((s) => s.top));
+    // In the intro the name is the peak: up to 1.35x the hero size, never wider than the page gutters allow.
+    const gutter = parseFloat(getComputedStyle(document.querySelector('.hero .wrap')).paddingLeft) || 16;
+    // Both sides of the name + role block must stay inside the gutters once scaled about the name's centre.
+    const rg = document.createRange(); rg.selectNodeContents(role); const roleRight = Math.max(...[...rg.getClientRects()].map((r) => r.right));
+    const cx = (left + right) / 2, half = innerWidth / 2 - gutter;
+    const scale = Math.max(1, Math.min(1.35, half / (cx - Math.min(left, rr.left)), half / (Math.max(right, roleRight) - cx)));
+    // Scale around the centre of the name + role block, so centring and the FLIP glide back to scale 1 stay exact.
+    const origin = ((left + right) / 2 - hr.left) + 'px ' + ((top + rr.bottom) / 2 - hr.top) + 'px';
+    return { x: innerWidth / 2 - (left + right) / 2, y: innerHeight / 2 - (top + rr.bottom) / 2, scale, origin };
+  }
+  function build() {
+    gsap.set(who, { autoAlpha: 1 });
+    const off = place();
+    ir.r = 0; ir.rot = 0; drawIris(0, 0);
+    const t = gsap.timeline({ paused: true, defaults: { ease: 'power2.out' } });
+    // Beat 1: the aperture opens in a soft, slightly overexposed field
+    t.set(who, { x: off.x, y: off.y, scale: off.scale, transformOrigin: off.origin }, 0)
+     .fromTo(bg, { autoAlpha: 1 }, { autoAlpha: 1, duration: 0.01 }, 0)
+     .fromTo(ctrl, { autoAlpha: 1 }, { autoAlpha: 1, duration: 0.01 }, 0)
+     .fromTo(bloom, { opacity: 0 }, { opacity: 1, duration: 1.2 }, 0)
+     .fromTo(iris, { autoAlpha: 0, scale: 0.94 }, { autoAlpha: 1, scale: 1, duration: 0.7 }, 0.05)
+     .fromTo(ring, { strokeDashoffset: 604 }, { strokeDashoffset: 0, duration: 0.9, ease: 'power2.inOut' }, 0.08)
+     .fromTo(ir, { r: 0, rot: 0 }, { r: R * 0.94, rot: 38, duration: 0.85, ease: 'power2.inOut', onUpdate: () => drawIris(ir.r, ir.rot) }, 0.42)
+     .to(iris, { scale: 1.45, autoAlpha: 0, duration: 0.75, ease: 'power2.in' }, 1.35)
+     .to(bloom, { opacity: 0.45, duration: 0.9 }, 1.4);
+    // Beat 2: three promises, each pulled from soft to sharp
+    [L.b2, L.b2 + 1.3, L.b2 + 2.6].forEach((at, i) => {
+      t.fromTo(lines[i], { autoAlpha: 0, filter: 'blur(12px)', scale: 1.045 }, { autoAlpha: 1, duration: 0.35, ease: 'none' }, at)
+       .fromTo(lines[i], { filter: 'blur(12px)', scale: 1.045 }, { filter: 'blur(0px)', scale: 1, duration: 1.0, ease: 'power3.out', immediateRender: false }, at);
+    });
+    // Beat 3: the turn
+    t.to(lines, { filter: 'blur(10px)', autoAlpha: 0, duration: 0.55, stagger: 0.07, ease: 'power2.in' }, L.b3)
+     .fromTo(focusLine, { autoAlpha: 0, filter: 'blur(12px)' }, { autoAlpha: 1, duration: 0.3, ease: 'none' }, 6.6)
+     .fromTo(focusLine, { filter: 'blur(12px)' }, { filter: 'blur(0px)', duration: 0.95, ease: 'power3.out', immediateRender: false }, 6.6)
+    // Beat 4: who
+     .to(focusLine, { filter: 'blur(8px)', autoAlpha: 0, duration: 0.45, ease: 'power2.in' }, L.b4)
+     .to(bloom, { opacity: 0, duration: 1.0 }, L.b4)
+     .fromTo(nameEl, { autoAlpha: 0, filter: 'blur(14px)' }, { autoAlpha: 1, duration: 0.4, ease: 'none' }, L.b4 + 0.15)
+     .fromTo(nameEl, { filter: 'blur(14px)' }, { filter: 'blur(0px)', duration: 1.05, ease: 'power3.out', immediateRender: false }, L.b4 + 0.15)
+     .fromTo(roleEl, { autoAlpha: 0, filter: 'blur(6px)' }, { autoAlpha: 1, filter: 'blur(0px)', duration: 0.6 }, L.b4 + 0.75)
+     // the hold stays alive: an almost imperceptible settle that finishes at exactly scale 1 before the glide
+     .fromTo(who, { scale: off.scale * 0.985 }, { scale: off.scale, duration: L.handoff - (L.b4 + 0.15), ease: 'sine.out' }, L.b4 + 0.15)
+    // Handoff: the name glides home, the veil lifts, the portrait and the rest of the hero arrive
+     .to(ctrl, { autoAlpha: 0, duration: 0.3 }, L.handoff)
+     .fromTo('.hero .hero-name, .hero .hero-role', { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.01 }, L.handoff + 1.0) // swap onto the real H1 the instant the glide lands
+     .to(who, { autoAlpha: 0, duration: 0.01 }, L.handoff + 1.02)
+     .to(who, { x: 0, y: 0, scale: 1, duration: 1.0, ease: 'power3.inOut' }, L.handoff) // FLIP: translate + scale land exactly on the H1
+     .to(bg, { autoAlpha: 0, duration: 0.9, ease: 'power2.inOut' }, L.handoff + 0.2)
+     .fromTo('.hero-figure img', { scale: 1.06 }, { scale: 1, duration: 2.2, ease: 'power2.out' }, L.handoff + 0.1)
+     .fromTo('.hero-meta > :not(.hero-role)', { autoAlpha: 0, y: 14 }, { autoAlpha: 1, y: 0, duration: 0.9, stagger: 0.08, ease: 'power3.out' }, L.handoff + 0.55)
+     .call(finish, null, L.handoff + 1.25);
+    return t;
+  }
+  function finish() {
+    if (ended) return;
+    ended = true;
+    if (capture) return;
+    html.classList.remove('kl-intro-on', 'kl-intro-live');
+    kli.hidden = true;
+    clearHash();
+    if (kli.contains(document.activeElement)) document.activeElement.blur();
+    if (window.ScrollTrigger) ScrollTrigger.refresh();
+  }
+  const draw = () => drawIris(ir.r, ir.rot);
+  function jump(to) { // earlier beats crossfade seamlessly; jumping into the handoff lets the sound breathe out over ~1s
+    if (!tl || ended) return; tl.seek(to); draw();
+    if (Snd.on) { if (to >= L.handoff) Snd.stop(1.0, true); else Snd.play(CUES, to); }
+  }
+  function next() {
+    if (!tl || ended) return;
+    const t = tl.time(), n = [L.b2, L.b3, L.b4, L.handoff].find((m) => m > t + 0.05);
+    if (n !== undefined) jump(n);
+  }
+  function skip() {
+    if (awaiting && tl) {               // from the start card: straight to the site, no intro
+      startCard.hidden = true; html.classList.remove('kl-awaiting'); awaiting = false;
+      ended = false; tl.progress(1, true); draw(); finish(); return;
+    }
+    if (!tl || ended) return;
+    if (tl.time() < L.handoff) { // whatever is sounding fades out over ~1s, in step with the glide: never a cut
+      tl.seek(L.handoff - 0.01); draw();
+      Snd.stop(1.0, true);
+    }
+    tl.timeScale(1.25).play();
+  }
+  // DEBUG hooks used for QA timing/sync checks. Remove both lines for production (see the checklist at the top).
+  window.__klTime = () => (tl && !ended ? +tl.time().toFixed(2) : null);
+  window.__klSnd = Snd;
+  function go() { ended = false; startW = innerWidth; tl.timeScale(1).play(0); if (Snd.on) Snd.play(CUES, 0); skipBtn.focus({ preventScroll: true }); }
+  function run() {
+    if (tl) tl.kill();
+    kli.hidden = false; startCard.hidden = true;
+    html.classList.add('kl-intro-on', 'kl-intro-live');
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    window.scrollTo(0, 0);
+    try { sessionStorage.setItem('kl-intro-seen', '1'); } catch (_) {}
+    Snd.stop(0, true);                                   // nothing left over from a previous run
+    const present = html.classList.contains('kl-present');
+    const forceSound = present || /[?&]sound=1\b/.test(location.search);
+    // Only try audio when it can succeed: the demo launcher, or a remembered choice after a real interaction.
+    const activated = !!(navigator.userActivation && navigator.userActivation.hasBeenActive);
+    const wantSound = forceSound || (Snd.pref.get() && activated);
+    setSoundUI(false);
+    const ready = document.fonts.ready.then(() => new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)))).then(() => { tl = build(); });
+    if (capture) {
+      ready.then(() => { ended = false; tl.seek(0); draw(); window.__klSeek = (s) => { tl.seek(s); draw(); }; window.__klDur = L.handoff + 1.25; window.__klReady = true; });
+      return;
+    }
+    const holdForClick = () => ready.then(() => {
+      startCard.hidden = false; html.classList.add('kl-awaiting'); awaiting = true;
+      const b = $('#kliStart'), quiet = $('#kliStartSilent'); b.focus({ preventScroll: true });
+      const leave = () => { b.onclick = quiet.onclick = null; startCard.hidden = true; html.classList.remove('kl-awaiting'); awaiting = false; };
+      b.onclick = (e) => { e.stopPropagation(); leave(); Snd.on = true; setSoundUI(true);   // this click is the gesture sound needs
+        Promise.all([Snd.unlock(1500), Snd.load()]).then(() => Snd.settle()).then(go); };
+      quiet.onclick = (e) => { e.stopPropagation(); leave(); Snd.on = false; setSoundUI(false); go(); };   // "Sound on" stays available
+    });
+    // Card first: the intro waits for a choice (sound, no sound, or Skip). Nothing plays silently on its own.
+    // Browsers only allow sound after a click on this page itself, so this card is the one step, every time.
+    if (present || html.getAttribute('data-start-card') === '1') { holdForClick(); return; }
+    if (!wantSound) { ready.then(go); return; }
+    Snd.unlock(350).then((ok) => {
+      if (ok) { Snd.on = true; setSoundUI(true); Promise.all([ready, Snd.load()]).then(() => Snd.settle()).then(go); return; }
+      if (!forceSound) { ready.then(go); return; } // remembered choice, but the browser wants a tap: play silently
+      // Demo mode and the browser still wants a gesture: hold on the start card so the sound is never lost.
+      holdForClick();
+    });
+  }
+  function toggleSound(e) {
+    e.stopPropagation();
+    if (!Snd.on) {
+      Snd.on = true; Snd.pref.set(true); setSoundUI(true);
+      Promise.all([Snd.unlock(1500), Snd.load()]).then(([ok]) => {
+        if (!ok) { Snd.on = false; setSoundUI(false); return; }
+        if (tl && !ended && tl.isActive()) Snd.play(CUES, tl.time());
+      });
+    } else { Snd.on = false; Snd.pref.set(false); setSoundUI(false); Snd.stop(0.15, true); }
+  }
+
+  soundBtn.addEventListener('click', toggleSound);
+  skipBtn.addEventListener('click', (e) => { e.stopPropagation(); skip(); });
+  kli.addEventListener('click', (e) => { if (!e.target.closest('button')) next(); });        // tap to jump a beat
+  let wheelAt = 0;
+  kli.addEventListener('wheel', () => { const n = Date.now(); if (n - wheelAt > 900) { wheelAt = n; next(); } }, { passive: true });
+  document.addEventListener('keydown', (e) => {
+    if (capture) return;
+    if (awaiting) { if (e.key === 'Escape') { e.preventDefault(); skip(); } return; }
+    if (ended) return;
+    if (e.key === 'Escape') { e.preventDefault(); skip(); }
+    else if (['ArrowRight', 'ArrowDown', 'PageDown', ' '].includes(e.key) && !e.target.closest('button')) { e.preventDefault(); next(); }
+  });
+  document.addEventListener('visibilitychange', () => { // keep picture and sound together if the tab is hidden
+    if (!tl || ended || capture) return;
+    if (document.hidden) { tl.pause(); Snd.stop(0, true); }
+    else { tl.play(); if (Snd.on) Snd.play(CUES, tl.time()); }
+  });
+  window.addEventListener('resize', () => { if (!ended && !capture && innerWidth !== startW) skip(); }); // rotation: land cleanly
+  window.addEventListener('hashchange', () => { if (location.hash === '#/intro' && !reduceMQ.matches) run(); });
+  // Back/Forward can restore this page without reloading it; in the mockup (and in presentation mode) start over.
+  window.addEventListener('pageshow', (e) => {
+    if (e.persisted && !reduceMQ.matches && (html.classList.contains('kl-present') || html.getAttribute('data-intro-once') !== '1')) run();
+  });
+
+  if (html.classList.contains('kl-intro-on')) run();
+});
+
+/* ---------- Motion: one slow hero entrance + gentle portrait parallax ---------- */
+document.addEventListener('DOMContentLoaded', () => {
+  if (!window.gsap || !window.ScrollTrigger) return;
+  gsap.registerPlugin(ScrollTrigger);
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    if (!document.documentElement.classList.contains('kl-intro-on')) {  // the intro hands off into the hero itself
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+      tl.from('.hero .hero-name .line > span', { yPercent: 110, duration: 1.5, stagger: 0.14 })
+        .from('.hero-figure img', { scale: 1.06, duration: 2.4, ease: 'power2.out' }, 0)
+        .from('.hero-meta > *', { autoAlpha: 0, y: 14, duration: 1.1, stagger: 0.1 }, 0.55);
+    }
+
+    gsap.utils.toArray('[data-parallax] img').forEach((img) => {
+      gsap.fromTo(img, { yPercent: -5, scale: 1.12 }, {
+        yPercent: 5, scale: 1.12, ease: 'none',
+        scrollTrigger: { trigger: img.parentElement, start: 'top bottom', end: 'bottom top', scrub: true }
+      });
+    });
+  });
+});
+</script>
+</body>
+</html>
