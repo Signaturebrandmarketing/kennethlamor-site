@@ -28,7 +28,7 @@
       2. INTRO_ONCE_PER_SESSION = true  set for launch, so a returning visitor in the same session isn't gated twice
       3. remove the debug hooks window.__klTime / window.__klSnd (marked "DEBUG" further down)
       4. don't publish ../PRESENT-Kenneth-Lamor.html (presenting only) or audio/source/ (license record only) */
- const INTRO_ONCE_PER_SESSION = false; // MOCKUP: every load plays the intro (for presenting). PRODUCTION: true.
+ const INTRO_ONCE_PER_SESSION = true;  // PRODUCTION (10/22): plays once per visit. Set false only for presenting.
  const INTRO_START_CARD = true;        // PRODUCTION: true (Ken's decision). The intro waits on the "Play with sound" card, the click
                                        // browsers need for sound. false would start it by itself, silent unless sound was already
                                        // allowed. ?present=1 always shows the card.
@@ -1325,9 +1325,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     tl.timeScale(1.25).play();
   }
-  // DEBUG hooks used for QA timing/sync checks. Remove both lines for production (see the checklist at the top).
-  window.__klTime = () => (tl && !ended ? +tl.time().toFixed(2) : null);
-  window.__klSnd = Snd;
   function go() { ended = false; startW = innerWidth; tl.timeScale(1).play(0); if (Snd.on) Snd.play(CUES, 0); skipBtn.focus({ preventScroll: true }); }
   function run() {
     if (tl) tl.kill();
