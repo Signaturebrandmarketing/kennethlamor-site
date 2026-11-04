@@ -66,7 +66,7 @@ h1{margin-top:22px;font-size:clamp(2.5rem,6vw,4.5rem);line-height:1.02}
     <p class="label">Your Signature Can&rsquo;t Be Copied</p>
     <h1 id="hello">You&rsquo;re in. See you Thursday at noon ET.</h1>
     <p class="lead">Thursday, November 19 &middot; 12:00 to 12:45 PM ET &middot; live on Zoom</p>
-    <p class="inbox">Your Zoom link is on its way from Ken Bridgett (ken@signaturebrandmarketing.com). If it isn&rsquo;t in your inbox in a few minutes, check Promotions or spam.</p>
+    <p class="inbox">Your Zoom link is on its way from Signature Branding &amp; Marketing (ken@signaturebrandmarketing.com). If it isn&rsquo;t in your inbox in a few minutes, check Promotions or spam.</p>
 
     <p class="cal-h">Add it to your calendar</p>
     <div class="cal">
@@ -95,7 +95,7 @@ h1{margin-top:22px;font-size:clamp(2.5rem,6vw,4.5rem);line-height:1.02}
   if (first) document.getElementById('hello').textContent = 'You’re in, ' + first + '. See you Thursday at noon ET.';
 
   const title = 'Your Signature Can’t Be Copied: free live masterclass with Kenneth Lamor';
-  const details = 'Live on Zoom. Your join link is in the confirmation email from Ken Bridgett (ken@signaturebrandmarketing.com). Bring one word: the word the people closest to you would use to describe you.';
+  const details = 'Live on Zoom. Your join link is in the confirmation email from Signature Branding & Marketing (ken@signaturebrandmarketing.com). Bring one word: the word the people closest to you would use to describe you.';
   const g = new URL('https://calendar.google.com/calendar/render');
   g.search = new URLSearchParams({ action: 'TEMPLATE', text: title, dates: '20261119T170000Z/20261119T174500Z', details, location: 'Zoom (link in your confirmation email)' });
   document.getElementById('cal-google').href = g.toString();
