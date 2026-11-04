@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>You're In | Your Signature Can't Be Copied</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#F7F2EC">
+<link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/icons/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F7F2EC; --stone:#EEE7DD; --ink:#17171B; --graphite:#4D4C52; --muted:#65635F; --line:#DDD5C9;
+  --gold:#C9A86A; --gold-deep:#76592A;
+  --serif:"Newsreader", Georgia, "Times New Roman", serif;
+  --sans:"Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --gutter:clamp(16px, 4.2vw, 64px);
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{color-scheme:light;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:1.0625rem;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+h1,h2{font-family:var(--serif);font-weight:300;margin:0;letter-spacing:-.015em;text-wrap:balance}
+p{margin:0;text-wrap:pretty}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.wrap{max-width:760px;margin-inline:auto;padding-inline:var(--gutter)}
+.nav{border-bottom:1px solid var(--line)}
+.nav .wrap{max-width:1240px;display:flex;align-items:center;height:68px}
+.wordmark{display:inline-block;padding-block:6px;line-height:0;color:var(--ink)}
+.wm-svg{display:block;width:clamp(150px,15vw,214px);height:auto}
+.label{display:flex;align-items:center;gap:14px;font-family:var(--serif);font-style:italic;font-size:1.125rem;color:var(--gold-deep)}
+.label::before{content:"";width:40px;height:1px;background:linear-gradient(90deg,var(--gold),rgba(201,168,106,.25))}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6em;min-height:52px;padding:0 28px;border:1px solid var(--ink);background:var(--ink);color:var(--paper);font:500 .9375rem/1 var(--sans);letter-spacing:.01em;text-decoration:none;white-space:nowrap;transition:background .35s var(--ease),color .35s var(--ease)}
+.btn:hover{background:#2B2B31}
+.btn--ghost{background:transparent;color:var(--ink);min-height:46px;padding:0 18px;font-size:.875rem}
+.btn--ghost:hover{background:var(--ink);color:var(--paper)}
+main{padding-block:clamp(48px,8vw,112px)}
+h1{margin-top:22px;font-size:clamp(2.5rem,6vw,4.5rem);line-height:1.02}
+.lead{margin-top:20px;font-family:var(--serif);font-size:clamp(1.2rem,1.8vw,1.45rem);line-height:1.5;font-weight:300;color:var(--graphite)}
+.inbox{margin-top:18px;color:var(--graphite)}
+.cal{margin-top:28px;display:flex;flex-wrap:wrap;gap:10px}
+.cal-h{margin-top:40px;font-size:.8125rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--graphite)}
+.next{margin-top:56px;background:var(--stone);padding:clamp(24px,4vw,44px);border-top:2px solid var(--gold)}
+.next h2{font-size:clamp(1.8rem,3.4vw,2.6rem);line-height:1.1}
+.next p{margin-top:14px;color:var(--graphite);max-width:52ch}
+.next .btn{margin-top:26px}
+.fine{margin-top:12px;font-size:.875rem;color:var(--muted)}
+.footer{padding:40px 0;border-top:1px solid var(--line);font-size:.875rem;color:var(--muted)}
+.footer .wrap{max-width:1240px}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="wordmark" href="/" translate="no" aria-label="Kenneth Lamor, home"><svg class="wm-svg" viewBox="0.00 0.00 1000.00 59.77" aria-hidden="true" focusable="false"><path fill="currentColor" d="M891.84 2.03Q897.74 2.03 902.72 4.08Q907.71 6.13 911.37 9.87Q915.02 13.6 917.02 18.74Q919.01 23.87 919.01 30.04Q919.01 36.29 917 41.48Q914.99 46.67 911.33 50.46Q907.67 54.26 902.69 56.34Q897.71 58.43 891.77 58.43Q885.83 58.43 880.85 56.38Q875.87 54.33 872.19 50.6Q868.51 46.86 866.5 41.71Q864.49 36.55 864.49 30.35Q864.49 24.14 866.52 18.95Q868.55 13.76 872.21 9.98Q875.87 6.21 880.87 4.12Q885.87 2.03 891.84 2.03ZM892.11 56.48Q897.67 56.48 901.65 53.49Q905.64 50.5 907.82 44.94Q910.01 39.39 910.01 31.65Q910.01 22.8 907.63 16.63Q905.25 10.46 901.06 7.2Q896.86 3.95 891.42 3.95Q885.87 3.95 881.86 6.94Q877.86 9.92 875.67 15.5Q873.49 21.07 873.49 28.81Q873.49 37.66 875.85 43.83Q878.2 50 882.4 53.24Q886.59 56.48 892.11 56.48ZM969.36 2.84Q977.02 2.84 981.5 4.56Q985.99 6.28 987.9 9.27Q989.82 12.26 989.82 16.09Q989.82 19.5 987.92 22.41Q986.02 25.33 982.29 27.2Q979 28.85 974.32 29.29Q977.03 29.47 978.88 30.14Q981.16 30.96 982.71 32.68Q984.26 34.41 985.6 37.28L991.31 49.31Q992.84 52.45 993.99 53.93Q995.14 55.4 996.5 55.79Q997.86 56.17 1000.01 56.17V57.63Q995.68 57.97 992.86 57.91Q990.05 57.86 988.25 57.21Q986.45 56.55 985.22 55.08Q983.99 53.6 982.81 51.11L976.25 37.2Q974.91 34.37 973.82 32.89Q972.73 31.42 971.54 30.86Q970.35 30.31 968.67 30.31H962.34V54.83L969.13 56.48V57.63H946.75V56.48L953.53 54.83V5.59L946.75 3.98V2.84H969.36ZM832.03 54.83 838.85 56.48V57.63H816.17V56.48L823.03 54.87L819.48 8.17L798.66 58.32H796.47L774.29 9.3L771.34 54.91L778.81 56.48V57.63H762.07V56.48L768.85 54.91L771.99 6.55L764.98 3.98V2.84H780.92L800.87 47.02L819.04 2.84H835.63V3.98L828.09 5.59ZM490.18 54.87 496.92 56.48V57.63H474.58V56.48L481.33 54.87V5.56L474.58 3.98V2.84H496.92V3.98L490.18 5.56V28.05H517.76V5.56L511.02 3.98V2.84H533.32V3.98L526.58 5.56V54.87L533.32 56.48V57.63H511.02V56.48L517.76 54.87V30.46H490.18ZM51.92 54.98 57.47 56.48V57.63H33.6V56.48L40.35 54.98L16.59 29.85H15.59V54.87L22.34 56.48V57.63H0V56.48L6.74 54.87V5.56L0 3.98V2.84H22.34V3.98L15.59 5.56V27.43H16.59L42.49 5.56L35.25 3.98V2.84H52.68V3.98L46.02 5.52L23.23 24.58ZM733.29 54.79 739.27 56.48V57.63H717.05V56.48L723.98 54.87L715.97 36.71H696.26L689.19 54.68L696.43 56.48V57.63H680.68V56.48L686.55 54.56L694.55 34.5V34.33H694.62L707.47 2.15H709.77ZM354.38 17.7 353.01 29.04 354.38 40.31H353.5L349.17 30.46L336.49 29.81V55.21H358.87L367.53 41.92L368.56 42.19L364.42 59.77H364.04L359.1 57.63H320.9V56.48L327.64 54.87V5.56L320.9 3.98V2.84H358.18L363.31 0.65H363.66L366.34 18.12L365.34 18.47L357.93 5.25H336.49V28.19L349.17 27.43L353.5 17.7ZM114.22 17.7 112.84 29.04 114.22 40.31H113.34L109.01 30.46L96.33 29.81V55.21H118.7L127.36 41.92L128.4 42.19L124.26 59.77H123.88L118.93 57.63H80.73V56.48L87.48 54.87V5.56L80.73 3.98V2.84H118.01L123.15 0.65H123.49L126.17 18.12L125.18 18.47L117.77 5.25H96.33V28.19L109.01 27.43L113.34 17.7ZM245.49 54.87V6.21L237.87 3.95V2.84H254.42L284.3 43.81V5.59L276.79 3.98V2.84H293.69V3.98L286.91 5.59V58.32H284.61L248.06 8.44V54.87L255.53 56.48V57.63H238.71V56.48ZM162.69 54.87V6.21L155.06 3.95V2.84H171.62L201.5 43.81V5.59L193.99 3.98V2.84H210.89V3.98L204.11 5.59V58.32H201.81L165.26 8.44V54.87L172.73 56.48V57.63H155.91V56.48ZM438.99 5.25H425.58V54.83L432.36 56.48V57.63H409.98V56.48L416.76 54.83V5.25H403.39L396 20L394.88 19.73L397.3 0H397.99L402.82 2.84H439.56L444.39 0H445.08L447.49 19.73L446.38 20ZM659.27 59.77H658.88L653.9 57.63H618.84V56.48L625.59 54.87V5.56L618.84 3.98V2.84H641.18V3.98L634.44 5.56V55.21H653.64L662.37 41.92L663.4 42.19ZM968.71 28.16Q974.45 28.16 977.67 25.14Q980.89 22.11 980.89 16.28Q980.89 12.72 979.49 10.21Q978.09 7.7 974.91 6.34Q971.73 4.98 966.41 4.98H962.34V28.16ZM714.92 34.33 705.55 13.11 697.2 34.33Z"/></svg></a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <p class="label">Your Signature Can&rsquo;t Be Copied</p>
+    <h1 id="hello">You&rsquo;re in. See you Thursday at noon ET.</h1>
+    <p class="lead">Thursday, November 19 &middot; 12:00 to 12:45 PM ET &middot; live on Zoom</p>
+    <p class="inbox">Your Zoom link is on its way from Ken Bridgett (ken@signaturebrandmarketing.com). If it isn&rsquo;t in your inbox in a few minutes, check Promotions or spam.</p>
+
+    <p class="cal-h">Add it to your calendar</p>
+    <div class="cal">
+      <a class="btn btn--ghost" id="cal-google" target="_blank" rel="noopener">Google</a>
+      <a class="btn btn--ghost" href="/masterclass/masterclass-2026-11-19.ics">Apple</a>
+      <a class="btn btn--ghost" id="cal-outlook" target="_blank" rel="noopener">Outlook</a>
+    </div>
+
+    <section class="next" aria-labelledby="next-h">
+      <h2 id="next-h">One thing before class.</h2>
+      <p>Take the free 2-minute Brand Assessment. It shows you what your brand is saying today, and I&rsquo;ll use real answers (no names) to show what&rsquo;s working and what isn&rsquo;t.</p>
+      <a class="btn" href="https://signaturebranding.app/brand-assessment?utm_source=masterclass&amp;utm_medium=thank-you&amp;utm_campaign=masterclass-2026-11-19">Take the assessment</a>
+      <p class="fine">I read every one personally. Ken</p>
+    </section>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap">&copy; 2026 Kenneth Lamor Bridgett &middot; <a href="/">kennethlamor.com</a></div>
+</footer>
+
+<script>
+(() => {
+  let first = '';
+  try { first = sessionStorage.getItem('mc_first') || ''; } catch (e) {}
+  if (first) document.getElementById('hello').textContent = 'You’re in, ' + first + '. See you Thursday at noon ET.';
+
+  const title = 'Your Signature Can’t Be Copied: free live masterclass with Kenneth Lamor';
+  const details = 'Live on Zoom. Your join link is in the confirmation email from Ken Bridgett (ken@signaturebrandmarketing.com). Bring one word: the word the people closest to you would use to describe you.';
+  const g = new URL('https://calendar.google.com/calendar/render');
+  g.search = new URLSearchParams({ action: 'TEMPLATE', text: title, dates: '20261119T170000Z/20261119T174500Z', details, location: 'Zoom (link in your confirmation email)' });
+  document.getElementById('cal-google').href = g.toString();
+  const o = new URL('https://outlook.live.com/calendar/0/action/compose');
+  o.search = new URLSearchParams({ subject: title, startdt: '2026-11-19T17:00:00Z', enddt: '2026-11-19T17:45:00Z', body: details, location: 'Zoom (link in your confirmation email)' });
+  document.getElementById('cal-outlook').href = o.toString();
+})();
+</script>
+</body>
+</html>
