@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Kenneth Lamor//Masterclass//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:masterclass-2026-12-10@kennethlamor.com
+DTSTAMP:20261112T000000Z
+DTSTART:20261210T170000Z
+DTEND:20261210T174500Z
+SUMMARY:Your Signature Can't Be Copied: free live masterclass with Kenneth Lamor
+DESCRIPTION:Live on Zoom. Your join link is in the confirmation email from Signature Branding & Marketing (ken@signaturebrandmarketing.com). Bring one word: the word the people closest to you would use to describe you.
+LOCATION:Zoom (link in your confirmation email)
+URL:https://kennethlamor.com/masterclass/
+BEGIN:VALARM
+TRIGGER:-PT1H
+ACTION:DISPLAY
+DESCRIPTION:Masterclass in 1 hour
+END:VALARM
+END:VEVENT
+END:VCALENDAR

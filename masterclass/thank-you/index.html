@@ -65,20 +65,20 @@ h1{margin-top:22px;font-size:clamp(2.5rem,6vw,4.5rem);line-height:1.02}
   <div class="wrap">
     <p class="label">Your Signature Can&rsquo;t Be Copied</p>
     <h1 id="hello">You&rsquo;re in. See you Thursday at noon ET.</h1>
-    <p class="lead">Thursday, November 19 &middot; 12:00 to 12:45 PM ET &middot; live on Zoom</p>
+    <p class="lead">Thursday, December 10 &middot; 12:00 to 12:45 PM ET &middot; live on Zoom</p>
     <p class="inbox">Your Zoom link is on its way from Signature Branding &amp; Marketing (ken@signaturebrandmarketing.com). If it isn&rsquo;t in your inbox in a few minutes, check Promotions or spam.</p>
 
     <p class="cal-h">Add it to your calendar</p>
     <div class="cal">
       <a class="btn btn--ghost" id="cal-google" target="_blank" rel="noopener">Google</a>
-      <a class="btn btn--ghost" href="/masterclass/masterclass-2026-11-19.ics">Apple</a>
+      <a class="btn btn--ghost" href="/masterclass/masterclass-2026-12-10.ics">Apple</a>
       <a class="btn btn--ghost" id="cal-outlook" target="_blank" rel="noopener">Outlook</a>
     </div>
 
     <section class="next" aria-labelledby="next-h">
       <h2 id="next-h">One thing before class.</h2>
       <p>Take the free 2-minute Brand Assessment. It shows you what your brand is saying today, and I&rsquo;ll use real answers (no names) to show what&rsquo;s working and what isn&rsquo;t.</p>
-      <a class="btn" href="https://signaturebranding.app/brand-assessment?utm_source=masterclass&amp;utm_medium=thank-you&amp;utm_campaign=masterclass-2026-11-19">Take the assessment</a>
+      <a class="btn" href="https://signaturebranding.app/brand-assessment?utm_source=masterclass&amp;utm_medium=thank-you&amp;utm_campaign=masterclass-2026-12-10">Take the assessment</a>
       <p class="fine">I read every one personally. Ken</p>
     </section>
   </div>
@@ -97,10 +97,10 @@ h1{margin-top:22px;font-size:clamp(2.5rem,6vw,4.5rem);line-height:1.02}
   const title = 'Your Signature Can’t Be Copied: free live masterclass with Kenneth Lamor';
   const details = 'Live on Zoom. Your join link is in the confirmation email from Signature Branding & Marketing (ken@signaturebrandmarketing.com). Bring one word: the word the people closest to you would use to describe you.';
   const g = new URL('https://calendar.google.com/calendar/render');
-  g.search = new URLSearchParams({ action: 'TEMPLATE', text: title, dates: '20261119T170000Z/20261119T174500Z', details, location: 'Zoom (link in your confirmation email)' });
+  g.search = new URLSearchParams({ action: 'TEMPLATE', text: title, dates: '20261210T170000Z/20261210T174500Z', details, location: 'Zoom (link in your confirmation email)' });
   document.getElementById('cal-google').href = g.toString();
   const o = new URL('https://outlook.live.com/calendar/0/action/compose');
-  o.search = new URLSearchParams({ subject: title, startdt: '2026-11-19T17:00:00Z', enddt: '2026-11-19T17:45:00Z', body: details, location: 'Zoom (link in your confirmation email)' });
+  o.search = new URLSearchParams({ subject: title, startdt: '2026-12-10T17:00:00Z', enddt: '2026-12-10T17:45:00Z', body: details, location: 'Zoom (link in your confirmation email)' });
   document.getElementById('cal-outlook').href = o.toString();
 })();
 </script>
