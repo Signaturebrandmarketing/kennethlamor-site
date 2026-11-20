@@ -133,6 +133,29 @@ p{margin:0;text-wrap:pretty}
 .step h3{font-size:1.6rem;line-height:1.2;font-weight:400}
 .step p{margin-top:8px;color:var(--graphite);max-width:58ch}
 
+/* Video: Jennifer's LiveLoop explainer (Ken, 11/20), right under the line, above How it works */
+.film{margin:0 0 clamp(64px,8vw,112px)}
+.film-frame{position:relative;background:#0B0B0D;box-shadow:0 34px 60px -34px rgba(23,23,27,.55),0 2px 6px rgba(23,23,27,.10)}
+.film-v{display:block;width:100%;height:auto;background:#0B0B0D}
+.film-v--wide{aspect-ratio:16/9}
+.film-v--tall{display:none;aspect-ratio:9/16}
+@media (max-width:639px){
+  .film-frame{max-width:400px;margin-inline:auto}
+  .film-v--wide{display:none}
+  .film-v--tall{display:block}
+}
+.film-play{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;width:100%;padding:0;border:0;background:radial-gradient(closest-side,rgba(11,11,13,.55),rgba(11,11,13,0));color:#F7F2EC;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.film-play .ring{display:grid;place-items:center;width:clamp(68px,7vw,88px);aspect-ratio:1;border-radius:50%;border:1px solid var(--gold);background:rgba(11,11,13,.78);transition:transform .35s var(--ease),background .35s var(--ease)}
+.film-play .ring svg{width:34%;height:auto;margin-left:8%;fill:#E0C68E}
+.film-play:hover .ring{transform:scale(1.06);background:rgba(11,11,13,.92)}
+.film-play .caps{letter-spacing:.24em;padding:8px 14px 7px;background:rgba(11,11,13,.82);border:1px solid rgba(201,168,106,.45)}
+.film-play[hidden]{display:none}
+.film-play:focus-visible{outline:2px solid var(--gold);outline-offset:-6px}
+.film-cap{margin-top:18px;display:grid;gap:4px;padding-left:16px;border-left:1px solid var(--gold);max-width:62ch}
+.film-cap .caps{color:var(--gold-deep)}
+.film-cap p{font-family:var(--serif);font-style:italic;font-size:1.1rem;line-height:1.4;color:var(--graphite)}
+@media (max-width:639px){.film-cap{max-width:400px;margin-inline:auto}}
+
 /* Every month */
 .month{background:var(--stone);border-top:0}
 .styles{margin-top:48px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
@@ -226,7 +249,7 @@ p{margin:0;text-wrap:pretty}
       <p class="sub">Signature LiveLoop&trade; turns your story into editorial-style posts, story videos and your own monthly magazine, all in your voice. You approve. We post it for you. And every week it learns what your audience responds to.</p>
       <p class="plat caps"><span>Facebook</span><span class="diamond" aria-hidden="true"></span><span>Instagram</span><span class="diamond" aria-hidden="true"></span><span>LinkedIn</span><span class="diamond" aria-hidden="true"></span><span>TikTok</span><span class="diamond" aria-hidden="true"></span><span>YouTube</span></p>
       <div class="actions">
-        <a class="btn" href="https://signaturebranding.app/liveloop" target="_blank" rel="noopener">See LiveLoop in action</a>
+        <a class="btn" href="#watch">See LiveLoop in action</a>
         <a class="btn btn--ghost" href="https://signaturebranding.app/brand-assessment" target="_blank" rel="noopener">Take the brand assessment</a>
       </div>
     </div>
@@ -239,6 +262,26 @@ p{margin:0;text-wrap:pretty}
 </section>
 
 <section class="sec" aria-labelledby="how-h">
+  <div class="wrap">
+    <figure class="film" id="watch">
+      <div class="film-frame">
+        <video class="film-v film-v--wide" controls playsinline preload="none" width="1920" height="1080" poster="/assets/video/liveloop-jennifer-wide-poster.webp" aria-label="Video: how LiveLoop works for Jennifer Thompson, narrated by Sig. 1 minute 22 seconds, with captions.">
+          <source src="/assets/video/liveloop-jennifer-wide.mp4" type="video/mp4">
+        </video>
+        <video class="film-v film-v--tall" controls playsinline preload="none" width="1080" height="1920" poster="/assets/video/liveloop-jennifer-tall-poster.webp" aria-label="Video: how LiveLoop works for Jennifer Thompson, narrated by Sig. 1 minute 22 seconds, with captions.">
+          <source src="/assets/video/liveloop-jennifer-tall.mp4" type="video/mp4">
+        </video>
+        <button class="film-play" type="button" hidden aria-label="Play the video: how LiveLoop works for Jennifer Thompson (1:22)">
+          <span class="ring" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 3.5v17l15-8.5z"/></svg></span>
+          <span class="caps" aria-hidden="true">Watch &middot; 1:22</span>
+        </button>
+      </div>
+      <figcaption class="film-cap">
+        <span class="caps">See it work</span>
+        <p>How LiveLoop works, with one real person: Jennifer Thompson, one of our Signature Ambassadors. Narrated by Sig, your Signature brand concierge.</p>
+      </figcaption>
+    </figure>
+  </div>
   <div class="wrap split">
     <div>
       <p class="label">How it works</p>
@@ -373,5 +416,32 @@ p{margin:0;text-wrap:pretty}
     <span>LiveLoop and Signature DNA are trademarks of Signature Branding &amp; Marketing.</span>
   </div>
 </footer>
+<script>
+/* Video: one play button over the poster. Without this script the native controls still work. */
+(function () {
+  var frame = document.querySelector('.film-frame');
+  if (!frame) return;
+  var btn = frame.querySelector('.film-play');
+  var phone = window.matchMedia('(max-width: 639px)');
+  var current = function () { return frame.querySelector(phone.matches ? '.film-v--tall' : '.film-v--wide'); };
+  var vids = frame.querySelectorAll('video');
+  vids.forEach(function (v) {
+    v.removeAttribute('controls');
+    v.addEventListener('play', function () { btn.hidden = true; v.controls = true; });
+  });
+  btn.hidden = false;
+  btn.addEventListener('click', function () {
+    var v = current();
+    v.controls = true;
+    btn.hidden = true;
+    var p = v.play();
+    if (p && p.catch) p.catch(function () { btn.hidden = false; });
+  });
+  // Switching layouts (rotating a tablet, resizing) pauses whichever one is now hidden.
+  phone.addEventListener && phone.addEventListener('change', function () {
+    vids.forEach(function (v) { if (v !== current() && !v.paused) v.pause(); });
+  });
+})();
+</script>
 </body>
 </html>
